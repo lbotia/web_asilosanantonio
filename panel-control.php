@@ -1,51 +1,61 @@
 <?php 
-session_start();
-
-if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-
-}else{
-	echo "Esta pagina es solo para usuarios registrados.<br>";
-   	echo "<br><a href='helpers/login.php'>Login</a>";
-    echo "<br><br><a href='index.php'>Registrarme</a>";
-
-
-   exit;
-}
-
-$now = time();
-
-if($now > $_SESSION['expire']){
-	session_destroy();
-
-	echo "Su sesion a terminado,
-	<a href='../index.php'> Necesita Hacer Login </a>";
-
-	exit;
-
-}
+include_once 'helpers/session.php';
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+	// incluir cabeceras ->  este header trae los css y js de materialize 
+	include 'helpers/header.php';
 
-<head>
-	<title>Panel de Control</title>
-</head>
 
-<body>
-<h1>Panel de Contol</h1>
-<p>aqui hirian los enlaces que le permitiran al usuario editar su perfil o cualquier otra cosa que desses</p>
 
-<ul>
-	<li>Editar Perfil</li>
-	<li>Editar Preferencias</li>
-	<li>Editar Configuracion</li>
-	<li>Etc</li>
-</ul>
+ ?>
 
-<br><br>
-<a href="controllers/logout.php">Cerrar Sesion </a>
+<?php 
 
-</body>
-</html>
+	include 'helpers/nav.php';  
+
+
+?>
+
+<div class="container">
+
+	<div class="row">
+		<div class="col l6">
+			
+		          <div class="card teal lighten-1 hoverable">
+		            <div class="card-content white-text">
+		              <span class="card-title center">HERMANAS</span>
+		              <br>
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action center">
+		              <a href="panel-hermanas.php">CONSULTAR</a>
+
+		            </div>
+		          </div>
+
+		</div>
+		<div class="col l6">
+			
+		          <div class="card teal lighten-1 hoverable">
+		            <div class="card-content white-text">
+		              <span class="card-title center">ANCIANOS</span>
+		              <br>
+		              <p>I am a very simple card. I am good at containing small bits of information.
+		              I am convenient because I require little markup to use effectively.</p>
+		            </div>
+		            <div class="card-action  center">
+		              <a href="panel-ancianos.php">CONSULTAR</a>
+		            
+		            </div>
+		          </div>
+
+		</div>
+	</div>
+
+</div>
+
+
+<?php include 'helpers/scripts.php'; ?>

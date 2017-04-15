@@ -39,9 +39,9 @@ if (password_verify($password, $row['passwordhash'])){
 	$_SESSION['expire'] = $_SESSION['start'] + (5*60);
 
 
-	echo "bienvenido! ". $_SESSION['username'];
-	echo "<br><br><a href=../panel-control.php>Panel de Control</a>"; 
-
+	//echo "bienvenido! ". $_SESSION['username'];
+	//echo "<br><br><a href=../panel-control.php>Panel de Control</a>"; 
+	header('Location: ../panel-control.php');
 	 } else { 
 	   echo "Username o Password estan incorrectos.";
 	 
@@ -49,15 +49,6 @@ if (password_verify($password, $row['passwordhash'])){
 	 }
 	 mysqli_close($conexion);
 ?>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Logo</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
+
 
 
