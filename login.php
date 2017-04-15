@@ -9,7 +9,7 @@
             <span class="card-title black-text" >Iniciar sesión</span>
             </p>
           <br>
-          <form method="POST">
+          <form method="POST" action="controllers/checklogin.php">
              <div class="row">
                 <div class="input-field col s12">
                     <input name="username" type="text" class="validate">
