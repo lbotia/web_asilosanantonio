@@ -1,5 +1,5 @@
  <nav class="teal lighten-1">
-    <div class="navbar-fixed">
+    <div class="nav-wrapper">
       <a href="#!" class="brand-logo center">ASILO SAN ANTONIO</a>
       <ul class="right hide-on-med-and-down">
       
@@ -7,7 +7,6 @@
       </ul>
     </div>
   </nav>
-
   <br>
   <br>
   <br>
