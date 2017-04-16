@@ -6,9 +6,6 @@ include_once 'helpers/session.php';
 <?php 
 	// incluir cabeceras ->  este header trae los css y js de materialize 
 	include 'helpers/header.php';
-
-
-
  ?>
 
 <?php 

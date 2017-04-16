@@ -17,7 +17,7 @@ include_once 'helpers/session.php';
           <div class="flow-text">Agregar Nuevo</div>
      	</div>
      	<div class="col l6 s6 m6 center-align">
-          <a class="btn btn-floating btn-large pulse"><i class="material-icons">search</i></a>
+          <a href="listar-hermanas.php"  class="btn btn-floating btn-large pulse"><i class="material-icons">search</i></a>
           <div class="flow-text">Buscar</div>
      	</div>
 
