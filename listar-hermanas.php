@@ -57,7 +57,7 @@ if (isset($_REQUEST['search_text'])) {
 	<div class="row">
 
 		<div class="col l12">
-			<div class="card-panel">
+			<div class="card-small">
 				<form>
 					<div class="input-field">
 						<input name="search_text" id="search_text" type="search" placeholder="cedula o nombre">
@@ -66,8 +66,12 @@ if (isset($_REQUEST['search_text'])) {
 					</div>
 				</form>
 
+
+
 				<div class="row">
 					<div class="col l12">
+
+
 						<?php 
 						
 						
@@ -87,7 +91,12 @@ if (isset($_REQUEST['search_text'])) {
 									<th>Lugar de nacimiento</th>
 									<th>Fecha de nacimiento</th>
 									<th>Eps</th>
+
 								</tr>
+
+
+
+
 							</thead>';
 							$out .= '<tbody>';
 
@@ -95,7 +104,7 @@ if (isset($_REQUEST['search_text'])) {
 								$ced = $row['cedula'];
 								$noms = $row['nombres'];
 								$lnam = $row['lugar_nacimiento'];
-								$fnac = $row['fecha_nacimiento'];
+								$fnac = $row['fecha_nacimiento'];  
 								$eps = $row['nombre_eps'];
 
 								$out .= '<tr>
@@ -105,13 +114,18 @@ if (isset($_REQUEST['search_text'])) {
 								<td>'.$fnac.'</td>
 								<td>'.$eps.'</td>
 							</tr>';
+
+
 						}
 
 						$out .= '</tbody>';
 						$out .= '</table>';
 								  			// imprimir tabla de datos
 						echo $out;
+
 					}
+
+
 
 
 				}else {
@@ -130,6 +144,9 @@ if (isset($_REQUEST['search_text'])) {
 							<th>Fecha de nacimiento</th>
 							<th>Eps</th>
 						</tr>
+
+						
+
 					</thead>';
 
 
@@ -144,23 +161,53 @@ if (isset($_REQUEST['search_text'])) {
 						$eps = $row['nombre_eps'];
 
 						$out .= '<tr>
+
+
+
 						<td>'.$ced.'</td>
 						<td>'.$noms.'</td>
 						<td>'.$lnam.'</td>
 						<td>'.$fnac.'</td>
 						<td>'.$eps.'</td>
-					</tr>';
-				}
 
-				$out .= '</tbody>';
-				$out .= '</table>';
-				echo $out;
+						<td><div class="row">
+							<div class="input-field col s12">
+								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+									Editar
+									<i class="material-icons right">mode_edit</i>
+								</button>
+							</div>
+						</div>
+					</td>
+				</tr>
+
+
+				'
+
+
+
+
+
+
+				;
 			}
+
+			$out .= '</tbody>';
+			$out .= '</table>';
+			echo $out;
+
 		}
+	}
 
 
-		?>
-	</div>
+	?>
+
+
+
+
+</div>
+
+
 </div>
 
 </div>
