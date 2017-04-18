@@ -91,7 +91,7 @@ include_once 'controllers/config.php'; ?>
 
 					<div class="col s10">
 						
-							<a class="waves-effect waves-light btn right">CANCELAR</a>
+							<a href="panel-hermanas.php" class="waves-effect waves-light btn right">CANCELAR</a>
 						
 					</div>
 

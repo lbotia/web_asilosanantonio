@@ -7,6 +7,5 @@ include_once 'helpers/session.php';
 <h5 align="center">Base de Datos Ancianos</h5>
 
 
-
 <?php 	include 'helpers/footer.php';  ?>
 <?php 	include 'helpers/scripts.php';  ?>
