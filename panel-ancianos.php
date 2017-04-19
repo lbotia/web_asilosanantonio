@@ -29,7 +29,7 @@ $searchtext;
 if (isset($_REQUEST['search_text'])) {
 	$searchtext = $_REQUEST['search_text'] ; 
 
-	$sqlSearch =' select a.cedula_anciano as cedula,a.nombres,a.apellidos, a.fecha_nacimiento, a.genero, a.cedula_original,a.subsidio_colombia_mayor,r.tipo_regimen,e.nombre_eps as eps, d.tipo_de_dependencia
+	$sqlSearch =' select a.cedula_anciano as cedula,a.nombres,a.apellidos, a.fecha_nacimiento, a.genero, a.cedula_original,a.subsidio_colombia_mayor as subsidio,r.tipo_regimen as regimen,e.nombre_eps as eps, d.tipo_de_dependencia as dependencia
 	from anciano a
 	inner join eps e on e.ideps = a.eps_ideps
 	inner join regimen r on r.idregimen = a.regimen_idregimen
