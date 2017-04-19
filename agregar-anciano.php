@@ -142,17 +142,17 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 					</div>
 
 					
-						<div class="input-field  col s6">
-							<div class="input-field inline col s6">
+					<div class="input-field  col s6">
+						<div class="input-field inline col s6">
 							<label>Cedula Original: </label>
-							</div>
-							<div class="input-field inline col s4">
+						</div>
+						<div class="input-field inline col s4">
 							<input name="group1" type="radio" id="test1" />
 							<label for="test1">Si</label>
 							<input name="group1" type="radio" id="test2" right/>
 							<label for="test2">No</label>						
 						</div>
-						</div>
+					</div>
 					
 
 				</div>
@@ -165,14 +165,14 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 
 					<div class="input-field col s6">						
 						<div class="input-field  col s6">
-						<label>Subsidio Colombia Mayor: </label>
+							<label>Subsidio Colombia Mayor: </label>
 						</div>
 						<div class="input-field  col s4">
-							<input name="group1" type="radio" id="test3" />
+							<input name="group2" type="radio" id="test3" />
 							<label for="test3">Si</label>
-							<input name="group1" type="radio" id="test4" right/>
+							<input name="group2" type="radio" id="test4" right/>
 							<label for="test4">No</label>
-							</div>
+						</div>
 
 						
 					</div>
@@ -284,6 +284,12 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 					</div>
 				</div>
 
+
+			
+
+
+
+				
 
 				<h5>Referente Social</h5>
 				<div class="row">
