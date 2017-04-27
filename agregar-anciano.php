@@ -13,6 +13,8 @@ include_once 'controllers/config.php'; ?>
 
 <?php 
 
+
+
 	// TRAER LISTA DE GENERO
 $sqlReg = 'SELECT * FROM regimen';
 $arrReg = array();
@@ -154,7 +156,6 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 						</div>
 					</div>
 					
-
 				</div>
 
 				<div class="row">
@@ -263,11 +264,11 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 
 					<div class="input-field col s6">
 						<input name="name" id="last_name" type="text" class="validate" >
-						<label for="last_name">Nombres</label>
+						<label for="last_name">Familiar 1</label>
 					</div>
 					<div class="input-field col s6">
 						<input name="apellido" id="last_name" type="text" class="validate" >
-						<label for="last_name">Apellidos</label>
+						<label for="last_name">Familiar 2</label>
 					</div>
 				</div>
 
@@ -279,19 +280,46 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 						<label for="last_name">Direccion</label>
 					</div>
 					<div class="input-field col s6">
-						<input name="telefono" id="last_name" type="text" class="validate" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
-						<label for="last_name">Telefono</label>
+						<input name="direccion" id="last_name" type="text" class="validate" >
+						<label for="last_name">Direccion</label>
 					</div>
+					
 				</div>
 
 
-			
+				<div class="row">
+					
+					<div class="input-field col s6">
+						<input name="telefono" id="last_name" type="text" class="validate" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+						<label for="last_name">Telefono</label>
+					</div>
+
+					<div class="input-field col s6">
+						<input name="telefono" id="last_name" type="text" class="validate" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+						<label for="last_name">Telefono</label>
+					</div>
+
+				</div>
+
+
+
 
 
 
 				
 
 				<h5>Referente Social</h5>
+				<div class="row">
+
+					<div class="input-field col s6">
+						<input name="name" id="last_name" type="text" class="validate" >
+						<label for="last_name">Nombres</label>
+					</div>
+					<div class="input-field col s6">
+						<input name="apellido" id="last_name" type="text" class="validate" >
+						<label for="last_name">Apellidos</label>
+					</div>
+				</div>
 				<div class="row">
 
 					<div class="input-field col s6">

@@ -57,6 +57,7 @@ if (isset($_REQUEST['search_text'])) {
 	<div class="row">
 
 		<div class="col l12">
+		<form method="POST" action="editar-hermanas.php">
 			<div class="card-small">
 				<form>
 					<div class="input-field">
@@ -113,6 +114,19 @@ if (isset($_REQUEST['search_text'])) {
 								<td>'.$lnam.'</td>
 								<td>'.$fnac.'</td>
 								<td>'.$eps.'</td>
+
+								<td>
+
+								<div class="input-field col s12">
+							<input type="hidden">
+								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+									Ver más
+									<i class="material-icons right">mode_edit</i>
+								</button>
+							</div>
+					</td>
+
+								
 							</tr>';
 
 
