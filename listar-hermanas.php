@@ -57,8 +57,7 @@ if (isset($_REQUEST['search_text'])) {
 	<div class="row">
 
 		<div class="col l12">
-		<form method="POST" action="editar-hermanas.php">
-			<div class="card-small">
+				<div class="card-small">
 				<form>
 					<div class="input-field">
 						<input name="search_text" id="search_text" type="search" placeholder="cedula o nombre">
@@ -108,22 +107,25 @@ if (isset($_REQUEST['search_text'])) {
 								$fnac = $row['fecha_nacimiento'];  
 								$eps = $row['nombre_eps'];
 
-								$out .= '<tr>
-								<td>'.$ced.'</td>
-								<td>'.$noms.'</td>
-								<td>'.$lnam.'</td>
-								<td>'.$fnac.'</td>
-								<td>'.$eps.'</td>
+								$out .= '
+								<tr>
+									<form method="POST" action="editar-hermanas.php">
+										<td>'.$ced.'</td>
+										<td>'.$noms.'</td>
+										<td>'.$lnam.'</td>
+										<td>'.$fnac.'</td>
+										<td>'.$eps.'</td>
 
-								<td>
+										<td>
 
 								<div class="input-field col s12">
-							<input type="hidden">
+								<input type="hidden">
 								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
 									Ver más
 									<i class="material-icons right">mode_edit</i>
 								</button>
 							</div>
+							</form>
 					</td>
 
 								
@@ -174,17 +176,17 @@ if (isset($_REQUEST['search_text'])) {
 						$fnac = $row['fecha_nacimiento'];
 						$eps = $row['nombre_eps'];
 
-						$out .= '<tr>
-
-
-
+						$out .= '
+						<tr>
+						<form method="POST action="editar-hermanas.php">
 						<td>'.$ced.'</td>
 						<td>'.$noms.'</td>
 						<td>'.$lnam.'</td>
 						<td>'.$fnac.'</td>
 						<td>'.$eps.'</td>
 
-						<td><div class="row">
+						<td>
+						<div class="row">
 							<div class="input-field col s12">
 								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
 									Editar
@@ -193,6 +195,7 @@ if (isset($_REQUEST['search_text'])) {
 							</div>
 						</div>
 					</td>
+					</form>
 				</tr>
 
 

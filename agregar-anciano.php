@@ -30,7 +30,6 @@ while ($row = mysqli_fetch_assoc($resReg)) {
 
 	//echo var_dump($arrEps);
 
-
 ?>
 
 <?php 
@@ -111,12 +110,12 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 				<div class="row">
 
 					<div class="input-field col s6" center>
-						<input name="fecha_ingreso" laceholder="FECHA" type="date" class="datepicker required">
+						<input name="fecha_ingreso" laceholder="FECHA" type="date" class="datepicker ">
 						<label for="dob">Fecha de Ingreso</label>
 					</div>
 
 					<div class="input-field col s6">
-						<input name="fecha_nacimiento" laceholder="FECHA" type="date" class="datepicker required">
+						<input name="fecha_nacimiento" laceholder="FECHA" type="date" class="datepicker ">
 						<label for="dob">Fecha de Nacimiento</label>
 					</div>
 
@@ -125,12 +124,12 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 				<div class="row">
 
 					<div class="input-field col s6">
-						<input name="name_anciano" id="last_name" type="text" class="validate" required>
+						<input name="name_anciano" id="last_name" type="text" class="validate" >
 						<label for="last_name">Nombres</label>
 					</div>
 
 					<div class="input-field col s6">
-						<input name="apellido_anciano" id="last_name" type="text" class="validate" required>
+						<input name="apellido_anciano" id="last_name" type="text" class="validate" >
 						<label for="last_name">Apellidos</label>
 					</div>
 
@@ -139,19 +138,19 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 				<div class="row">
 
 					<div class="input-field col s6">
-						<input name="cedula" id="last_name" type="text" class="validate" required onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+						<input name="cedula" id="last_name" type="text" class="validate"  onkeypress="return event.charCode >= 47 && event.charCode <= 57">
 						<label for="last_name">Cedula</label>
 					</div>
 
 					
 					<div class="input-field  col s6">
-						<div class="input-field inline col s6">
+						<div  class="input-field inline col s6">
 							<label>Cedula Original: </label>
 						</div>
 						<div class="input-field inline col s4">
-							<input name="group1" type="radio" id="test1" />
+							<input name="group_cedula" type="radio" id="test1" value="1" />
 							<label for="test1">Si</label>
-							<input name="group1" type="radio" id="test2" right/>
+							<input name="group_cedula" type="radio" id="test2" value="0" right/>
 							<label for="test2">No</label>						
 						</div>
 					</div>
@@ -160,7 +159,11 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 
 				<div class="row">
 					<div class="input-field col s6">
-						<input name="genero" id="last_name" type="text" class="validate" required>
+						<select name="genero">
+							<option value="" disabled selected>Seleccione Genero</option>
+							<option value="FEMENINO">FEMENINO</option>
+							<option value="MASCULINO">MASCULINO</option>
+						</select>
 						<label for="last_name">Genero</label>
 					</div>	
 
@@ -169,9 +172,9 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 							<label>Subsidio Colombia Mayor: </label>
 						</div>
 						<div class="input-field  col s4">
-							<input name="group2" type="radio" id="test3" />
+							<input name="group_sub" type="radio" id="test3" value="1" />
 							<label for="test3">Si</label>
-							<input name="group2" type="radio" id="test4" right/>
+							<input name="group_sub" type="radio" id="test4" value="0" right/>
 							<label for="test4">No</label>
 						</div>
 
@@ -184,12 +187,13 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 
 				<div class="row">
 					<div class="input-field col s6">
-						<select name="idregimen" required>
+						<select name="idregimen" >
 							<option value="" disabled selected>Seleccione Regimen</option>
 
 							<?php 
+
 							foreach ($arrReg as $idReg => $nomReg) {
-								echo '<option value='.$idregimen.'>'.$nomReg.'</option>';
+								echo '<option value='.$idReg.'>'.$nomReg.'</option>';
 							}
 							?>
 							
@@ -198,7 +202,7 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 					</div>
 
 					<div class="input-field col s6">
-						<select name="ideps" required>
+						<select name="ideps" >
 							<option value="" disabled selected>Seleccione EPS</option>
 							
 							<?php 
@@ -232,7 +236,7 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 					</div>
 
 					<div class="input-field col s6">
-						<select multiple required="">
+						<select name="discapacidad[]" multiple>
 							<option value="" disabled selected>Seleccione Discapacidad</option>
 							
 							<?php 
@@ -259,45 +263,36 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 
 				<!-- DATOS FAMILIARES -->
 
-				<h5>Datos Familiares</h5>
+		<!-- 		<h5>Datos Familiares</h5>
 				<div class="row">
 
-					<div class="input-field col s6">
-						<input name="name" id="last_name" type="text" class="validate" >
-						<label for="last_name">Familiar 1</label>
+					<div class="input-field col s12">
+						<input name="name_familiar" id="last_name" type="text" class="validate" >
+						<label for="last_name">Familiares</label>
 					</div>
-					<div class="input-field col s6">
-						<input name="apellido" id="last_name" type="text" class="validate" >
-						<label for="last_name">Familiar 2</label>
-					</div>
+				
 				</div>
 
 				<div class="row">
 
 
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input name="direccion" id="last_name" type="text" class="validate" >
 						<label for="last_name">Direccion</label>
 					</div>
-					<div class="input-field col s6">
-						<input name="direccion" id="last_name" type="text" class="validate" >
-						<label for="last_name">Direccion</label>
-					</div>
+				
 					
 				</div>
 
 
 				<div class="row">
 					
-					<div class="input-field col s6">
+					<div class="input-field col s12">
 						<input name="telefono" id="last_name" type="text" class="validate" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
-						<label for="last_name">Telefono</label>
+						<label for="last_name">Telefonos</label>
 					</div>
 
-					<div class="input-field col s6">
-						<input name="telefono" id="last_name" type="text" class="validate" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
-						<label for="last_name">Telefono</label>
-					</div>
+				
 
 				</div>
 
@@ -311,26 +306,17 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 				<h5>Referente Social</h5>
 				<div class="row">
 
-					<div class="input-field col s6">
-						<input name="name" id="last_name" type="text" class="validate" >
+					<div class="input-field col s12">
+						<input name="name_referente" id="last_name" type="text" class="validate" >
 						<label for="last_name">Nombres</label>
 					</div>
-					<div class="input-field col s6">
-						<input name="apellido" id="last_name" type="text" class="validate" >
-						<label for="last_name">Apellidos</label>
-					</div>
+					
 				</div>
 				<div class="row">
 
-					<div class="input-field col s6">
-						<input name="name" id="last_name" type="text" class="validate" >
-						<label for="last_name">Nombres</label>
-					</div>
-					<div class="input-field col s6">
-						<input name="apellido" id="last_name" type="text" class="validate" >
-						<label for="last_name">Apellidos</label>
-					</div>
-				</div>
+				
+					
+				</div> -->
 
 				<div class="row">		
 

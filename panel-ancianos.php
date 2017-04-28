@@ -28,7 +28,7 @@ if (isset($_REQUEST['search_text'])) {
 	$searchtext = $_REQUEST['search_text'] ; 
 
 	$sqlSearch ='select * from listar_ancianos where nombres like "%'.$searchtext.'%" or cedula like "%'.$searchtext.'%"';
-
+	echo $searchtext;
 	$resSearch = $conn->query($sqlSearch);
 
 
@@ -67,8 +67,8 @@ if (isset($_REQUEST['search_text'])) {
 					<?php 
 					if (isset($searchtext)){
 								//listar busqueda
-						if (mysqli_num_rows($resSearch) > 0	) {
-$out ='';
+						if (mysqli_num_rows($resSearch) > 0) {
+							$out ='';
 
 							$out .='
 							<table class="highlight">
@@ -88,7 +88,7 @@ $out ='';
 
 						$out .= '<tbody>';
 
-						while($row = mysqli_fetch_array($res)){
+						while($row = mysqli_fetch_array($resSearch)){
 							$ced = $row['cedula'];											
 							$noms = $row['nombres'];
 							$apell = $row['apellidos'];
