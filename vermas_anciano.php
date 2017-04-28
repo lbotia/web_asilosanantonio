@@ -98,6 +98,8 @@ $gen = '';
 $sub = '';
 $idreg ='';
 $id_eps = '';
+$id_dep = '';
+$obs = '';
 
 
 	if ($resdata->num_rows > 0) {
@@ -112,8 +114,10 @@ $id_eps = '';
 			$sub = $r['subsidio'];
 			$idreg = $r['idregimen'];
 			$id_eps = $r['id_eps'];
+			$id_dep = $r['iddependencia'];
+			$obs =$r['observacion'];
 
-		}
+		}	
 	}else
 	{
 		echo "NO HAY DATOS";
@@ -124,7 +128,7 @@ $id_eps = '';
 
 	<div class="row">
 		<div class="card-panel">
-			<h5>Datos Personales: <?php echo $names; echo $apellidos ?>, 90 Años</h5>
+			<h5>Datos Personales: <?php echo $names; echo ' '.$apellidos ?>, 90 Años</h5>
 			<form method="POST" action="controllers/addanciano.php">
 
 				<div class="row">
@@ -267,7 +271,8 @@ $id_eps = '';
 							
 							<?php 
 							foreach ($arrDep as $idDep => $nomDep) {
-								echo '<option value='.$idDep.'>'.$nomDep.'</option>';
+								$depSel = ($idDep == $id_dep) ? 'selected' : '';
+								echo '<option value='.$idDep.' '.$depSel.'>'.$nomDep.'</option>';
 							}
 							?>
 							
@@ -282,7 +287,7 @@ $id_eps = '';
 				<div class="row">
 
 					<div class="input-field col s12">
-						<textarea name="observaciones" id="textarea1" class="materialize-textarea"></textarea>
+						<textarea name="observaciones"  id="textarea1" class="materialize-textarea"><?php echo $obs; ?></textarea>
 						<label for="textarea1">Observacion</label>
 					</div>
 				</div>
