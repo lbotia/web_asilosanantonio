@@ -74,14 +74,15 @@ if (isset($_REQUEST['search_text'])) {
 							<table class="highlight">
 								<thead>
 								<tr>
-									<th>Cedula</th>
 									<th>Nombres</th>
-									<th>Apellidos</th>
+									<th>Cedula</th>
+									<th>Fecha Ingeso</th>
 									<th>Fecha Nacimiento</th>
+									<th>Edad</th>
 									<th>Genero</th>
 									<th>Regimen</th>
 									<th>Eps</th>
-									<th>Fecha Ingeso</th>
+									
 								</tr>
 								</thead>';
 
@@ -89,30 +90,31 @@ if (isset($_REQUEST['search_text'])) {
 						$out .= '<tbody>';
 
 						while($row = mysqli_fetch_array($resSearch)){
-							$ced = $row['cedula'];											
 							$noms = $row['nombres'];
 							$apell = $row['apellidos'];
+							$ced = $row['cedula'];
+							$f_ing = $row['fecha_ingreso'];											
 							$f_nac = $row['fecha_nacimiento'];
+							$edad = $row['edad'];
 							$gen = $row['genero'];
-											// $ced_ori = $row['cedula_original'];
-											// $ced_orig = ($ced_ori == 1) ? 'Si' : 'No';
-											// $sub = $row['subsidio'];
-											// $subs = ($sub == 1) ? 'Si' : 'No';
 							$reg = $row['regimen'];
 							$eps = $row['eps'];
-							$f_ing = $row['fecha_ingreso'];
+
+							$nombres = $noms.' '.$apell;
+							
 
 							$out .= '
 							<tr>
 							<form method="POST" action="vermas_anciano.php">
+							<td>'.$nombres.'</td>
 							<td>'.$ced.'</td>
-							<td>'.$noms.'</td>
-							<td>'.$apell.'</td>
+							<td>'.$f_ing.'</td>
 							<td>'.$f_nac.'</td>
+							<td>'.$edad.'</td>
 							<td>'.$gen.'</td>
 							<td>'.$reg.'</td>
 							<td>'.$eps.'</td>
-							<td>'.$f_ing.'</td>
+							
 
 							<td>
 							
@@ -144,14 +146,15 @@ if (isset($_REQUEST['search_text'])) {
 							<table class="highlight">
 								<thead>
 								<tr>
+									<th>Nombres</th>									
 									<th>Cedula</th>
-									<th>Nombres</th>
-									<th>Apellidos</th>
+									<th>Fecha Ingeso</th>
 									<th>Fecha Nacimiento</th>
+									<th>Edad</th>
 									<th>Genero</th>
 									<th>Regimen</th>
 									<th>Eps</th>
-									<th>Fecha Ingeso</th>
+									
 								</tr>
 								</thead>';
 
@@ -159,30 +162,29 @@ if (isset($_REQUEST['search_text'])) {
 						$out .= '<tbody>';
 
 						while($row = mysqli_fetch_array($res)){
-							$ced = $row['cedula'];											
 							$noms = $row['nombres'];
 							$apell = $row['apellidos'];
+							$ced = $row['cedula'];											
+							$f_ing = $row['fecha_ingreso'];
 							$f_nac = $row['fecha_nacimiento'];
-							$gen = $row['genero'];
-											// $ced_ori = $row['cedula_original'];
-											// $ced_orig = ($ced_ori == 1) ? 'Si' : 'No';
-											// $sub = $row['subsidio'];
-											// $subs = ($sub == 1) ? 'Si' : 'No';
+							$edad = $row['edad'];
+							$gen = $row['genero'];										
 							$reg = $row['regimen'];
 							$eps = $row['eps'];
-							$f_ing = $row['fecha_ingreso'];
+							$nombres = $noms.' '.$apell;
 
 							$out .= '
 							<tr>
 							<form method="POST" action="vermas_anciano.php">
+							<td>'.$nombres.'</td>							
 							<td>'.$ced.'</td>
-							<td>'.$noms.'</td>
-							<td>'.$apell.'</td>
+							<td>'.$f_ing.'</td>
 							<td>'.$f_nac.'</td>
+							<td>'.$edad.'</td>
 							<td>'.$gen.'</td>
 							<td>'.$reg.'</td>
 							<td>'.$eps.'</td>
-							<td>'.$f_ing.'</td>
+							
 
 							<td>
 							

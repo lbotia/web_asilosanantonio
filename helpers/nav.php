@@ -1,6 +1,6 @@
- <nav class="teal lighten-1">
+ <nav class="teal   teal lighten-1">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">ASILO SAN ANTONIO</a>
+      <a href="#!" class="brand-logo center">HOGAR SAN ANTONIO</a>
       <ul class="right hide-on-med-and-down">
       
         <li><a href="controllers/logout.php"><i class="material-icons right">power_settings_new</i>Cerrar Sesión</a></li>

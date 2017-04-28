@@ -81,8 +81,9 @@ if (isset($_REQUEST['search_text'])) {
 
 								$out .= '<table class="highlight"><thead>
 								<tr>
-									<th>Cedula</th>
 									<th>Nombres</th>
+									<th>Cedula</th>
+									<th>Edad</th>
 									<th>Lugar de nacimiento</th>
 									<th>Fecha de nacimiento</th>
 									<th>Eps</th>
@@ -96,8 +97,9 @@ if (isset($_REQUEST['search_text'])) {
 							$out .= '<tbody>';
 
 							while($row = mysqli_fetch_array($resSearch)){
-								$ced = $row['cedula'];
 								$noms = $row['nombres'];
+								$ced = $row['cedula'];
+								$edad = $row['edad'];
 								$lnam = $row['lugar_nacimiento'];
 								$fnac = $row['fecha_nacimiento'];  
 								$eps = $row['nombre_eps'];
@@ -105,8 +107,9 @@ if (isset($_REQUEST['search_text'])) {
 								$out .= '
 								<tr>
 								<form method="POST" action="editar-hermanas.php">
-								<td>'.$ced.'</td>
 								<td>'.$noms.'</td>
+								<td>'.$ced.'</td>
+								<td>'.$edad.'</td>
 								<td>'.$lnam.'</td>
 								<td>'.$fnac.'</td>
 								<td>'.$eps.'</td>
@@ -116,7 +119,7 @@ if (isset($_REQUEST['search_text'])) {
 							<div class="input-field col s12">
 							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
 								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-									Ver mas
+									Editar
 									<i class="material-icons right">mode_edit</i>
 								</button>
 							</div>
@@ -148,8 +151,9 @@ if (isset($_REQUEST['search_text'])) {
 
 						$out .= '<table class="highlight"><thead>
 						<tr>
-							<th>Cedula</th>
 							<th>Nombres</th>
+							<th>Cedula</th>
+							<th>Edad</th>
 							<th>Lugar de nacimiento</th>
 							<th>Fecha de nacimiento</th>
 							<th>Eps</th>
@@ -164,8 +168,9 @@ if (isset($_REQUEST['search_text'])) {
 					$out .= '<tbody>';
 
 					while($row = mysqli_fetch_array($res)){
-						$ced = $row['cedula'];
 						$noms = $row['nombres'];
+						$ced = $row['cedula'];
+						$edad = $row['edad'];
 						$lnam = $row['lugar_nacimiento'];
 						$fnac = $row['fecha_nacimiento'];
 						$eps = $row['nombre_eps'];
@@ -173,9 +178,9 @@ if (isset($_REQUEST['search_text'])) {
 						$out .= '<tr>
 
 						<form method="POST" action="editar-hermanas.php">
-
-						<td>'.$ced.'</td>
 						<td>'.$noms.'</td>
+						<td>'.$ced.'</td>
+						<td>'.$edad.'</td>
 						<td>'.$lnam.'</td>
 						<td>'.$fnac.'</td>
 						<td>'.$eps.'</td>
@@ -185,7 +190,7 @@ if (isset($_REQUEST['search_text'])) {
 							<div class="input-field col s12">
 							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
 								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-									Ver mas
+									Editar
 									<i class="material-icons right">mode_edit</i>
 								</button>
 							</div>

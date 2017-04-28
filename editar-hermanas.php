@@ -70,7 +70,7 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 ?>
 
 
-<h5 class="center-align">Datos de : <?php echo $nombres; ?>, edad <?php echo $edad; ?></h5>
+<h5 class="center-align"><?php echo $nombres; ?>, EDAD <?php echo $edad; ?></h5>
 
 <div class="container">
 	<div class="row">
