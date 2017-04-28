@@ -92,23 +92,32 @@ $names = '';
 $apellidos = '';
 $cedula = '';
 $ced_ori = '';
-
+$f_ingre = '';
+$f_nac = '';
+$gen = '';
+$sub = '';
+$idreg ='';
+$id_eps = '';
 
 
 	if ($resdata->num_rows > 0) {
 		while ($r = $resdata->fetch_assoc()) {
+			$f_ingre = $r['fecha_ingreso'];
+			$f_nac = $r ['fecha_nacimiento'];
 			$names = $r['nombres'];
 			$apellidos = $r['apellidos'];
 			$cedula = $r['cedula'];
 			$ced_ori = $r['cedula_original'];
+			$gen = $r['genero'];
+			$sub = $r['subsidio'];
+			$idreg = $r['idregimen'];
+			$id_eps = $r['id_eps'];
 
 		}
 	}else
 	{
 		echo "NO HAY DATOS";
 	}
-
-
 
  ?>
 <div class="container">
@@ -121,12 +130,12 @@ $ced_ori = '';
 				<div class="row">
 
 					<div class="input-field col s6" center>
-						<input name="fecha_ingreso" value="" type="date" class="datepicker ">
+						<input name="fecha_ingreso" value='<?php echo $f_ingre; ?>' type="date" class="datepicker ">
 						<label for="dob">Fecha de Ingreso</label>
 					</div>
 
 					<div class="input-field col s6">
-						<input name="fecha_nacimiento"  type="date" class="datepicker ">
+						<input name="fecha_nacimiento" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
 						<label for="dob">Fecha de Nacimiento</label>
 					</div>
 
@@ -162,9 +171,6 @@ $ced_ori = '';
 
 						$ced1 = ($ced_ori == 1) ? 'checked' : ''; 
 						$ced0 = ($ced_ori == 0) ? 'checked' : ''; 
-
-				
-
 						 ?>
 							<input name="group_cedula"  type="radio" id="test1" value="1" <?php echo $ced1; ?> />
 							<label for="test1">Si</label>
@@ -177,22 +183,34 @@ $ced_ori = '';
 
 				<div class="row">
 					<div class="input-field col s6">
+					<?php 
+
+						$gen_M = ($gen == 'MASCULINO') ? 'selected': '';
+						$gen_F = ($gen == 'FEMENINO') ? 'selected': '';
+
+					 ?>
 						<select name="genero">
 							<option value="" disabled selected>Seleccione Genero</option>
-							<option value="FEMENINO">FEMENINO</option>
-							<option value="MASCULINO">MASCULINO</option>
+							<option value="FEMENINO" <?php echo $gen_F; ?>>FEMENINO</option>
+							<option value="MASCULINO" <?php echo $gen_M; ?>>MASCULINO</option>
 						</select>
 						<label for="last_name">Genero</label>
 					</div>	
 
-					<div class="input-field col s6">						
+					<div class="input-field col s6">
+
+					<?php 
+
+						$sub1 = ($sub == 1) ? 'checked' : ''; 
+						$sub0 = ($sub == 0) ? 'checked' : ''; 
+					 ?>						
 						<div class="input-field  col s6">
 							<label>Subsidio Colombia Mayor: </label>
 						</div>
 						<div class="input-field  col s4">
-							<input name="group_sub" type="radio" id="test3" value="1" />
+							<input name="group_sub" type="radio" id="test3" value="1" <?php echo $sub1; ?>/>
 							<label for="test3">Si</label>
-							<input name="group_sub" type="radio" id="test4" value="0" right/>
+							<input name="group_sub" type="radio" id="test4" value="0" right <?php echo $sub0; ?> />
 							<label for="test4">No</label>
 						</div>
 
@@ -204,14 +222,17 @@ $ced_ori = '';
 				</div>
 
 				<div class="row">
+
 					<div class="input-field col s6">
 						<select name="idregimen" >
 							<option value="" disabled selected>Seleccione Regimen</option>
 
 							<?php 
 
-							foreach ($arrReg as $idReg => $nomReg) {
-								echo '<option value='.$idReg.'>'.$nomReg.'</option>';
+							foreach ($arrReg as $keyReg => $nomReg) {
+
+								$regSel = ($idreg == $keyReg) ?  'selected' : '';
+								echo '<option value='.$keyReg.' '.$regSel.'>'.$nomReg.'</option>';
 							}
 							?>
 							
@@ -224,8 +245,10 @@ $ced_ori = '';
 							<option value="" disabled selected>Seleccione EPS</option>
 							
 							<?php 
+
 							foreach ($arrEps as $idEps => $nomEps) {
-								echo '<option value='.$idEps.'>'.$nomEps.'</option>';
+								$epsSel = ($idEps == $id_eps) ? 'selected' : '';
+								echo '<option value='.$idEps.' '.$epsSel.'>'.$nomEps.'</option>';
 							}
 							?>
 							
