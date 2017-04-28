@@ -17,9 +17,7 @@ include 'helpers/navhermanas.php';
 
 // consulta datos hermanas
 
-$sql = 'select h.cedula_hermana as cedula,h.nombres,h.lugar_nacimiento,h.fecha_nacimiento,e.nombre_eps
-from hermana h, eps e
-where e.ideps = h.eps_ideps';
+$sql = 'select * from listar_hermanas';
 
 $res = $conn->query($sql);
 
@@ -29,11 +27,8 @@ $searchtext;
 if (isset($_REQUEST['search_text'])) {
 	$searchtext = $_REQUEST['search_text'] ; 
 
-	$sqlSearch ='	select h.cedula_hermana as cedula,h.nombres,h.lugar_nacimiento,h.fecha_nacimiento,e.nombre_eps 
-	from hermana h 
-	inner join eps e on e.ideps = h.eps_ideps
-	where h.cedula_hermana like "%'.$searchtext.'%"
-	or h.nombres like "%'.$searchtext.'%"';
+	$sqlSearch ='select * from listar_hermanas where nombres like "%'.$searchtext.'%" or cedula like "%'.$searchtext.'%"';
+	echo $searchtext;
 	$resSearch = $conn->query($sqlSearch);
 
 
@@ -57,7 +52,7 @@ if (isset($_REQUEST['search_text'])) {
 	<div class="row">
 
 		<div class="col l12">
-				<div class="card-small">
+			<div class="card-small">
 				<form>
 					<div class="input-field">
 						<input name="search_text" id="search_text" type="search" placeholder="cedula o nombre">
@@ -109,27 +104,26 @@ if (isset($_REQUEST['search_text'])) {
 
 								$out .= '
 								<tr>
-									<form method="POST" action="editar-hermanas.php">
-										<td>'.$ced.'</td>
-										<td>'.$noms.'</td>
-										<td>'.$lnam.'</td>
-										<td>'.$fnac.'</td>
-										<td>'.$eps.'</td>
+								<form method="POST" action="editar-hermanas.php">
+								<td>'.$ced.'</td>
+								<td>'.$noms.'</td>
+								<td>'.$lnam.'</td>
+								<td>'.$fnac.'</td>
+								<td>'.$eps.'</td>
 
-										<td>
-
-								<div class="input-field col s12">
-								<input type="hidden">
+								<td>
+							
+							<div class="input-field col s12">
+							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
 								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-									Ver más
+									Ver mas
 									<i class="material-icons right">mode_edit</i>
 								</button>
 							</div>
-							</form>
-					</td>
 
-								
-							</tr>';
+							</td>
+							</form>
+						</tr>';
 
 
 						}
@@ -176,9 +170,10 @@ if (isset($_REQUEST['search_text'])) {
 						$fnac = $row['fecha_nacimiento'];
 						$eps = $row['nombre_eps'];
 
-						$out .= '
-						<tr>
-						<form method="POST action="editar-hermanas.php">
+						$out .= '<tr>
+
+						<form method="POST" action="editar-hermanas.php">
+
 						<td>'.$ced.'</td>
 						<td>'.$noms.'</td>
 						<td>'.$lnam.'</td>
@@ -186,27 +181,18 @@ if (isset($_REQUEST['search_text'])) {
 						<td>'.$eps.'</td>
 
 						<td>
-						<div class="row">
+							
 							<div class="input-field col s12">
+							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
 								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-									Editar
+									Ver mas
 									<i class="material-icons right">mode_edit</i>
 								</button>
 							</div>
-						</div>
-					</td>
-					</form>
-				</tr>
 
-
-				'
-
-
-
-
-
-
-				;
+							</td>
+							</form>
+						</tr>';
 			}
 
 			$out .= '</tbody>';
