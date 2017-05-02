@@ -33,7 +33,7 @@ if (isset($_POST)) {
 
 	$sqlDis = 'select discapacidad from listar_discapacidades where cedula = "'.$ced.'"';
 	$resDisc = $conn->query($sqlDis);
-
+	$discapacidades = array();
 	if ($resDisc->num_rows > 0 ) {
 		while ($r = $resDisc->fetch_assoc()) {
 			$discapacidades[] = $r['discapacidad'];
@@ -43,6 +43,18 @@ if (isset($_POST)) {
 	//echo var_dump($discapacidades);
 
  ?>
+ <?php  
+
+ 	$sqlref = 'select nombre_referente from listar_referentes where cedula = "'.$ced.'"';
+ 	$resref = $conn->query($sqlref);
+ 	$nom_referen = array();
+ 	if ($resref->num_rows > 0 ) {
+		while ($r = $resref->fetch_assoc()) {
+			$nom_referen[] = $r['nombre_referente'];
+		}
+	}
+
+?>
 
 <?php 
 
@@ -56,7 +68,7 @@ $resdata = $conn->query($sqldata);
 			$f_nac = $r ['fecha_nacimiento'];
 			$names = $r['nombres'];
 			$apellidos = $r['apellidos'];
-			$cedula = $r['cedula'];
+			$ced = $r['cedula'];
 			$ced_ori = $r['cedula_original'];
 			$ced_original = ($ced_ori == 1) ? 'Si' : 'No';
 			$gen = $r['genero'];
@@ -70,27 +82,57 @@ $resdata = $conn->query($sqldata);
 
 
 
+
+
+
 		}	
 	}else
 	{
 		echo "NO HAY DATOS";
 	}
 
- ?>
+?>
+<?php  
+
+$sqlfam = 'SELECT * FROM familia WHERE anciano_cedula_anciano = "'.$ced.'"';
+$resfam = $conn->query($sqlfam);
+$nom_familiar = array();
+$direc = array();
+$tel = array();
+
+
+	if ($resfam->num_rows > 0) {
+		while ($r = $resfam->fetch_assoc()) {
+//FAMILIARES
+			$nom_familiar = $r['nombres'];
+			$direc = $r['direccion'];
+			$tel = $r['telefonos'];
+
+		}	
+	}else
+	{
+		//echo "NO HAY DATOS";
+	}
+?>
+
+
+
+
  <div class="container">
 
  	<div class="card-panel">
 
  		<div class="col l12">
  			<blockquote>
-      <p class="flow-text"><?php echo $names.' '.$apellidos; ?>  </p>
-    </blockquote>
+      			<p class="flow-text"><?php echo $names.' '.$apellidos; ?>  </p>
+    		</blockquote>
  		</div>
+ 			<form method="POST" action="editar_anciano.php">
  		<table class="striped">
-
+ 			
 
  			<tbody>
-
+ 				
  				<tr>
  					<td>Cedula:</td>
  					<td><?php echo $ced; ?></td>
@@ -134,9 +176,14 @@ $resdata = $conn->query($sqldata);
  				<tr>
  					<td>Discapacidades:</td>
  					<td><?php 
+
+ 						if ($discapacidades == NULL) {
+ 							echo "sin discapacidad";
+ 						}else {
  						foreach ($discapacidades as $disc) {
  							echo $disc. ', ';
  						}
+ 					}
 
  					 ?></td>
 
@@ -158,6 +205,117 @@ $resdata = $conn->query($sqldata);
  				</tr>
 
  			</tbody>
+
  		</table>
+ 			<div class="input-field col s12">
+							<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
+								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+									Editar
+									<i class="material-icons right">mode_edit</i>
+								</button>
+							</div>
+							</form>
+
  	</div>
+
+
+ 	<div class="card-panel">
+ 		<table class="striped">
+
+ 		<form method="POST" action="editar_anciano.php">
+
+
+ 			<tbody>
+ 				
+ 				<tr>
+ 					<td>Nombres:</td>
+ 					<td>
+	 					<?php 					
+	 						if ($nom_familiar == NULL) {
+	 							echo "";
+	 						}else { 					
+	 							echo $nom_familiar;
+	 						}
+	 					?>
+ 					</td>
+ 				</tr>
+
+ 				<tr>
+ 					<td>Direccion:</td>
+ 					<td>
+ 						<?php 
+							if ($direc == NULL) {
+					 			echo "";
+					 		}else {
+					 					
+					 			echo $direc;
+					 		}					
+						?>
+ 					</td>
+ 				</tr>
+
+ 				<tr>
+ 					<td>Telefonos:</td>
+ 					<td>
+ 						<?php 
+		 					if ($tel == NULL) {
+					 			echo "";
+					 			}else {
+					 					
+					 			echo $tel;
+					 		}
+						?>
+						</td>
+ 				</tr>
+
+ 				</tbody>
+ 				</table>
+ 				<div class="input-field col s12">
+							<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
+								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+									Editar
+									<i class="material-icons right">mode_edit</i>
+								</button>
+							</div>
+
+				</form>
+ 	</div>
+
+ 	<div class="card-panel">
+ 		<table class="striped">
+
+ 		<form method="POST" action="editar_anciano.php">
+ 			<tbody>
+ 			<tr>
+ 				<td>Nombres:</td>
+ 				<td>
+ 				<?php
+ 					if ($nom_referen == NULL) {
+ 							echo "";
+ 						}else {
+ 						foreach ($nom_referen as $nom_refe) {
+ 							echo $nom_refe. ', ';
+ 						}
+
+ 					}
+						?>
+ 				</td>
+
+ 			</tr>
+
+ 			</tbody>
+ 			</table>
+ 				<div class="input-field col s12">
+							<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
+								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+									Editar
+									<i class="material-icons right">mode_edit</i>
+								</button>
+							</div>
+
+</form>
+
+
+
+
  </div>

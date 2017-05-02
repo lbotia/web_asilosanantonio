@@ -100,6 +100,7 @@ $idreg ='';
 $id_eps = '';
 $id_dep = '';
 $obs = '';
+$edad = '';
 
 
 	if ($resdata->num_rows > 0) {
@@ -116,6 +117,7 @@ $obs = '';
 			$id_eps = $r['id_eps'];
 			$id_dep = $r['iddependencia'];
 			$obs =$r['observacion'];
+			$edad =$r['edad'];
 
 		}	
 	}else
@@ -128,7 +130,7 @@ $obs = '';
 
 	<div class="row">
 		<div class="card-panel">
-			<h5>Datos Personales: <?php echo $names; echo ' '.$apellidos ?>, 90 Años</h5>
+			<h5><?php echo $names; echo ' '.$apellidos  ?>, edad <?php echo $edad; ?> años </h5>
 			<form method="POST" action="controllers/addanciano.php">
 
 				<div class="row">
