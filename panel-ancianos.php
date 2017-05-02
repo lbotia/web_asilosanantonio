@@ -42,7 +42,6 @@ if (isset($_REQUEST['search_text'])) {
 			<p class="flow-text">Buscar</p>
 		</blockquote>
 
-
 	</div>
 
 

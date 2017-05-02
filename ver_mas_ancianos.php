@@ -222,7 +222,7 @@ $tel = array();
  	<div class="card-panel">
  		<table class="striped">
 
- 		<form method="POST" action="editar_anciano.php">
+ 		<form method="POST" action="editar-familiar.php">
 
 
  			<tbody>
@@ -284,7 +284,7 @@ $tel = array();
  	<div class="card-panel">
  		<table class="striped">
 
- 		<form method="POST" action="editar_anciano.php">
+ 		<form method="POST" action="editar-referente.php">
  			<tbody>
  			<tr>
  				<td>Nombres:</td>
