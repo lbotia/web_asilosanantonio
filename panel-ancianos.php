@@ -105,7 +105,7 @@ if (isset($_REQUEST['search_text'])) {
 
 							$out .= '
 							<tr>
-							<form method="POST" action="vermas_anciano.php">
+							<form method="POST" action="ver_mas_ancianos.php">
 							<td>'.$nombres.'</td>
 							<td>'.$ced.'</td>
 							<td>'.$f_ing.'</td>
@@ -175,7 +175,7 @@ if (isset($_REQUEST['search_text'])) {
 
 							$out .= '
 							<tr>
-							<form method="POST" action="vermas_anciano.php">
+							<form method="POST" action="ver_mas_ancianos.php">
 							<td>'.$nombres.'</td>							
 							<td>'.$ced.'</td>
 							<td>'.$f_ing.'</td>
