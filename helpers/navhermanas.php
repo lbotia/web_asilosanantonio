@@ -1,6 +1,6 @@
  <nav class="teal lighten-1">
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">ASILO SAN ANTONIO</a>
+      <a href="#!" class="brand-logo">HOGAR SAN ANTONIO</a>
       <ul class="right hide-on-med-and-down">
         
         <li><a href="panel-control.php"><i class="material-icons right">home</i></a></li>

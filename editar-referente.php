@@ -24,35 +24,59 @@ $sqldata = 'select nombre_referente from listar_referentes where cedula = "'.$ce
 
 $resdata = $conn->query($sqldata);
 $nom_referen = array();
- 	if ($resdata->num_rows > 0 ) {
-		while ($r = $resdata->fetch_assoc()) {
-			$nom_referen[] = $r['nombre_referente'];
-		}
+if ($resdata->num_rows > 0 ) {
+	while ($r = $resdata->fetch_assoc()) {
+		$nom_referen[] = $r['nombre_referente'];
 	}
+}
 
 ?>
 <div class="container">
 
 	<div class="row">
-		<div class="card-panel">
-					<div class="row">
+		<div class="card-panel">					
+					<table class="striped">
+					<form  action="editar-referente-social.php" method="POST">
+					  <thead>
+					    <tr>
+					        <th>Nombre del Referente Social</th>
+					    </tr>
+					  </thead>
 
-					<div class="input-field col s12">
-						<input name="name_familiar" value='<?php
- 					if ($nom_referen == NULL) {
- 							echo "";
- 						}else {
- 						foreach ($nom_referen as $nom_refe) {
- 							echo $nom_refe. ', ';
- 						}
+					  <tbody>
+					  <?php 
+					  	$out = '';
+					  	foreach ($nom_referen as $nom) {
+					  		$out .= '<tr>';
+					  		$out .= '<td>'.$nom.'</td>';
+					  		$out .= '<td><div class="input-field col s12">
+										<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+											Editar
+											<i class="material-icons right">mode_edit</i>
+										</button>
+									</div></td>';
+					  		$out .= '</tr>';
+					  		//echo $nom;
+					  	}
+					  	echo $out;
+					   ?>			     
 
- 					}
-						?>' id="last_name" type="text" class="validate" >
-						<label for="last_name">Nombres</label>
-					</div>
-					</div>
-					</div>
-					</div>
-					</div>
-<?php 	include 'helpers/footer.php';  ?>
-<?php 	include 'helpers/scripts.php';  ?>
+					  </tbody>
+					</table>
+
+						<br>
+						<div class="col s12">
+						<form  action="agregar-referente.php" method="POST">
+						<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
+							<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+								Agregar Nuevo
+								<i class="material-icons right">add</i>
+							</button>
+						</div>
+						</form>
+	
+			</div>
+		</div>
+	</div>
+	<?php 	include 'helpers/footer.php';  ?>
+	<?php 	include 'helpers/scripts.php';  ?>
