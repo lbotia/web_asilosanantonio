@@ -292,7 +292,7 @@ if ($resfam->num_rows > 0) {
 			</blockquote>
 			<table class="striped">
 
-				<form method="POST" action="editar-referente.php">
+				<form method="POST" action="listar-referentes.php">
 				<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
 					<tbody>
 						<tr>
