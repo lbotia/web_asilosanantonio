@@ -24,8 +24,10 @@ if (isset($_POST)) {
 
 	 $conn->close();
 
+	 header('Location: ../listar-referentes.php?cedula='.$ced.'');
+
 	  
-	 echo "<meta http-equiv='refresh' content='0;URL=../listar-referentes.php' />";
+	 // echo "<meta http-equiv='refresh' content='0;URL=../listar-referentes.php' />";
 	 
 
 	}

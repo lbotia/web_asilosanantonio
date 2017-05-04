@@ -51,7 +51,9 @@ if (isset($_POST)) {
 	 			}
 	 			
 	 	}	
-echo "<meta http-equiv='refresh' content='0;URL=../panel-ancianos.php' />";
+
+	 	header('Location: ../ver_mas_ancianos.php?cedula='.$ced.'');
+
 
 	
 	
