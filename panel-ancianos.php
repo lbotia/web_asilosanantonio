@@ -1,4 +1,5 @@
 <?php 
+header('Cache-Control: no cache');
 include_once 'helpers/session.php';
 include_once 'controllers/config.php';
 ?>

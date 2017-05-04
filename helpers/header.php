@@ -12,4 +12,6 @@
         <link rel="shortcut icon" href="img/bd.png" type="image/jpg">
     </head>
 <body>
+
+<?php header('Cache-Control: no cache'); ?>
  

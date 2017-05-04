@@ -1,4 +1,5 @@
 <?php 
+
 include_once 'helpers/session.php';
 ?>
 
@@ -10,6 +11,7 @@ include_once 'controllers/config.php'; ?>
 <?php 	include 'helpers/navancianos.php';  ?>
 
 <?php 
+
 if (isset($_POST)) {
 	$ced = $_REQUEST['cedula'];
 	$nameref = $_REQUEST['nameref'];

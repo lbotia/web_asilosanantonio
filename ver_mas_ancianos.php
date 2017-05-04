@@ -1,4 +1,5 @@
 <?php 
+
 include_once 'helpers/session.php';
 
 ?>
@@ -24,7 +25,6 @@ if (isset($_POST)) {
 	$ced = $_REQUEST['cedula'];
 	//echo $ced;
 
-	setcookie("cedula",$ced);
 
 }
 

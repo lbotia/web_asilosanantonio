@@ -1,4 +1,5 @@
 <?php 
+
 include_once 'helpers/session.php';
 
 ?>
@@ -13,10 +14,9 @@ include_once 'controllers/config.php'; ?>
 <?php 
 
 if (isset($_POST)) {
-	$ced = $_COOKIE['cedula'];
+	$ced = $_REQUEST['cedula'];
 
 
-	//echo $_COOKIE['cedula'];
 
 }
 

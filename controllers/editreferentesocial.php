@@ -24,7 +24,8 @@ if (isset($_POST)) {
 
 
 
-	echo "<meta http-equiv='refresh' content='0;URL=../listar-referentes.php' />";
+	//echo "<meta content='0;URL=../listar-referentes.php' />";
+	header('Location: ../listar-referentes.php?cedula='.$ced.'');
 
 }
 
