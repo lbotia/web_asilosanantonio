@@ -24,6 +24,8 @@ if (isset($_POST)) {
 	$ced = $_REQUEST['cedula'];
 	//echo $ced;
 
+	setcookie("cedula",$ced);
+
 }
 
 ?>

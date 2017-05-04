@@ -24,12 +24,8 @@ if (isset($_POST)) {
 
 	 $conn->close();
 
- 
- 
- 
- 
 	  
-	// echo "<meta http-equiv='refresh' content='0;URL=../panel-ancianos.php' />";
+	 echo "<meta http-equiv='refresh' content='0;URL=../listar-referentes.php' />";
 	 
 
 	}
