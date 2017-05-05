@@ -1,4 +1,4 @@
- <nav class="teal   teal lighten-1">
+ <nav class="#3949ab indigo darken-1">
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo center">HOGAR SAN ANTONIO</a>
       <ul class="right hide-on-med-and-down">

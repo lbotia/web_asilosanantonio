@@ -13,9 +13,6 @@ if (isset($_POST)) {
 
 	$nombres = $name.' '.$apellido;
 
-
-
-
 	$sql = 'INSERT INTO hermana
 			(cedula_hermana, nombres, fecha_nacimiento, lugar_nacimiento, eps_ideps)
 			VALUES("'.$cedula.'", "'.$nombres.'", "'.$fecha.'", "'.$l_nacimiento.'", '.$ideps.')';
