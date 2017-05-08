@@ -15,85 +15,54 @@ include 'helpers/nav.php';
 
 ?>
 
-<div class="container">
+<div class="valign-wrapper" style="width:100%;height:60%;position: absolute;">
+    <div class="valign" style="width:100%;">
+        <div class="container">
+           <div class="row">
+        	<!-- CARD 1 -->
+              <div class="col s6">
 
-	<div class="row">
-		<div class="col l6">
-
-		  <div class="row">
-
-          <div class="card  hoverable">
-            <div class="card-image small">
-              <img class="responsive-img" src="img/aguelitopro.png">
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-
-      </div>
-            
-			
-<!-- 			<div class="card hoverable">
-				<div class="card-content">
-					<span class="card-title center">HERMANAS DE LA CONGREGACIÓN DE LOS ANCIANOS DESAMPARADOS</span>
-					<br>
-	              <p>I am a very simple card. I am good at containing small bits of information.
-	              I am convenient because I require little markup to use effectively.</p>
-	         		           
-		      </div>
-		      <div class="card-action center">
-		      	<a href="panel-hermanas.php">CONSULTAR</a>
-
-		      </div>
-	  		</div> -->
-
-	</div>
-	<div class="col l6 m4">
+              	<div class="card hoverable">
+              		<div class="card-image waves-effect waves-block waves-light">
+              			<a href="lalal.php"><img class="responsive-img" src="img/aguelitopro.png" alt="office" href="hola.php"></a>
+              		</div>
+              		<div class="card-content">
+              			<span class="card-title activator grey-text text-darken-4">Ancianos
+              		</div>
+              	</div>
 
 
-<div class="row">
+              </div>
+              <!-- CARD 2 -->
 
-          <div class="card hoverable">
-            <div class="card-image small">
-              <img class="responsive-img"  src="img/monjita.png" style="width:30em; center center;">
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
+              <div class="col s6">
+                 <div class="card">
+                    <div class="card-content">
+                       <span class="card-title black-text">Sign In</span>
+                       <form>
+                          <div class="row">
+                             <div class="input-field col s12">
+                                <input placeholder="Placeholder" id="firstname" type="text" class="validate">
+                                <label for="firstname" class="active">First Name</label>
+                             </div>
+                          </div>
+                          <div class="row">
+                             <div class="input-field col s12">
+                                <input placeholder="Placeholder" id="lastname" type="text" class="validate">
+                                <label for="lastname" class="active">Last Name</label>
+                             </div>
+                          </div>
+                       </form>
+                    </div>
+                    <div class="card-action">
+                       <input type="submit" class="btn" value="Sign In">
+                    </div>
+                 </div>
+              </div>
+           </div>
         </div>
-
-		<!-- div class="card hoverable">
-			<div class="card-content ">
-				<span class="card-title center">ADULTO MAYOR</span>
-				<br>
-				<br>
-				<br>
-				<br>
+    </div>
+</div>
 
 
-		              <p>I am a very simple card. I am good at containing small bits of information.
-		             I am convenient because I require little markup to use effectively.</p>
-		         </div>
-		         <div class="card-action  center">
-		         	<a href="panel-ancianos.php">CONSULTAR</a>
-
-		         </div>
-		     </div> -->
-
-		 </div>
-		</div>
-
-	</div>
-
-
-	<?php include 'helpers/scripts.php'; ?>
+<?php include 'helpers/scripts.php'; ?>
