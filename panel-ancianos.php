@@ -29,24 +29,21 @@ if (isset($_REQUEST['search_text'])) {
 	$searchtext = $_REQUEST['search_text'] ; 
 
 	$sqlSearch ='select * from listar_ancianos where nombres like "%'.$searchtext.'%" or cedula like "%'.$searchtext.'%"';
-	echo $searchtext;
+	//echo $searchtext;
 	$resSearch = $conn->query($sqlSearch);
 
 
 }
 ?>
 
-
+<div class="container">
 <div class="row">
-	<div class="col l1 offset-l1">
-		<blockquote>
-			<p class="flow-text">Buscar</p>
-		</blockquote>
-
+	<div class="row">
+		<h4 class="center-align">BASE DE DATOS ADULTO MAYOR</h4>
+	</div>
+</div>
 	</div>
 
-
-</div>
 
 <div class="row">
 	<div class="col l12">
@@ -120,7 +117,7 @@ if (isset($_REQUEST['search_text'])) {
 							
 							<div class="input-field col s12">
 							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
-								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+								<button class="btn theme-color right" type="submit" name="action">
 									Ver mas
 									<i class="material-icons right">mode_edit</i>
 								</button>
@@ -190,7 +187,7 @@ if (isset($_REQUEST['search_text'])) {
 							
 							<div class="input-field col s12">
 							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
-								<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+								<button class="btn theme-color right" type="submit" name="action">
 									Ver mas
 									<i class="material-icons right">mode_edit</i>
 								</button>
@@ -223,8 +220,6 @@ if (isset($_REQUEST['search_text'])) {
 </div>
 
 </div>
-
-
 
 
 <?php 

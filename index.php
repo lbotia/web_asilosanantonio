@@ -9,6 +9,8 @@
 <!-- Pie de la pagina -->
 <?php include 'helpers/scripts.php'; ?>
 
+<?php include 'helpers/footer.php'; ?>
+
 
 <?php
 

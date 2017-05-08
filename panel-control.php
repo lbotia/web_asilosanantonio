@@ -53,5 +53,5 @@ include 'helpers/nav.php';
 		</div>
 	</div>
 
-
+<?php include 'helpers/footer.php'; ?>
 <?php include 'helpers/scripts.php'; ?>

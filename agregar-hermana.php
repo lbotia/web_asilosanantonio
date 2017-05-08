@@ -91,13 +91,13 @@ include_once 'controllers/config.php'; ?>
 
 					<div class="col s10">
 						
-							<a href="panel-hermanas.php" class="waves-effect waves-light btn right">CANCELAR</a>
+							<a href="panel-hermanas.php" class="theme-color btn right">CANCELAR</a>
 						
 					</div>
 
 					<div class="col s2">
 						
-							<button class="btn waves-effect waves-light" type="submit" name="action">
+							<button class="btn theme-color" type="submit" name="action">
 							AGREGAR             			
              				</button>
 						

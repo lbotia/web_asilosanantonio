@@ -211,7 +211,7 @@ if ($resfam->num_rows > 0) {
 				</table>
 				<div class="input-field col s12">
 					<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
-					<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+					<button class="btn theme-color right" type="submit" name="action">
 						Editar
 						<i class="material-icons right">mode_edit</i>
 					</button>
@@ -279,7 +279,7 @@ if ($resfam->num_rows > 0) {
 				</table>
 				<div class="input-field col s12">
 					<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
-					<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+					<button class="btn theme-color right" type="submit" name="action">
 						Editar
 						<i class="material-icons right">mode_edit</i>
 					</button>
@@ -319,7 +319,7 @@ if ($resfam->num_rows > 0) {
 				<div class="input-field col s12">
 					<input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
 					
-					<button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+					<button class="btn theme-color right" type="submit" name="action">
 						Editar
 						<i class="material-icons right">mode_edit</i>
 					</button>

@@ -66,7 +66,7 @@ if ($resdata->num_rows > 0 ) {
               <input type="hidden" name="cedula" id="cedula" value="'.$ced.'">
               <input type="hidden" name="nameref" id="nameref" value="'.$nom.'">
               <input type="hidden" name="idref" id="idref" value="'.$idref.'">
-                <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
+                <button class="btn theme-color right" type="submit" name="action">
                   Editar
                   <i class="material-icons right">mode_edit</i>
                 </button>
@@ -100,9 +100,9 @@ if ($resdata->num_rows > 0 ) {
         <div class="input-field col s12">
           <input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
 
-          <button class="btn cyan waves-effect waves-light right" type="submit" name="action">
-            Agregar Nuevo
-            <i class="material-icons right">add</i>
+          <button class="btn theme-color right" type="submit" name="action">
+            Aplicar cambios
+            <i class="material-icons right">done</i>
           </button>
         </div>
       </form>
@@ -112,8 +112,8 @@ if ($resdata->num_rows > 0 ) {
     </div>
     <div class="card-action">
       <div class="row">
-        <div class="col s12 offset-s10">
-          <a class="activator cyan waves-effect waves-light btn">Agregar<i class="material-icons right">add</i></a>
+        <div class="col s3 offset-s9">
+          <a class="activator theme-color btn">Agregar Nuevo<i class="material-icons right">add</i></a>
         </div>
       </div>
     </div>

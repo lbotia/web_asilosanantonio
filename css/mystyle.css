@@ -15,7 +15,9 @@
 	font-size: inherit;
   size: 500px;
 }
-
+/*.btn {
+  background:   #3949ab;
+}*/
 .tabs .tab {
   display: inline-block;
   text-align: center;
@@ -50,4 +52,12 @@
   height: 2px;
   background-color: #F44336;
   will-change: left, right;
+}
+
+.theme-color {
+    background-color: #3949ab;
+}
+
+.theme-color:hover {
+    background-color: #00A1D6;
 }

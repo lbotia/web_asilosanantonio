@@ -1,3 +1,5 @@
+<div class="valign-wrapper" style="width:100%;height:90%;position: absolute;">
+  <div class="valign" style="width:100%;">
 <div class="container">
   <div class="row">
     <div class="col s12 m6 offset-m3">
@@ -12,22 +14,23 @@
           <form method="POST" action="controllers/checklogin.php">
              <div class="row">
                 <div class="input-field col s12">
-                    <input name="username" type="text" class="validate">
-                    <label for="text">User</label>
+                    <input name="username" type="text" class="validate">Usuario</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input name="password" type="password" class="validate">
-                    <label for="password">Password</label>
+                    <label for="password">Contraseña</label>
                 </div>
             </div>
             <div class="card-action center">
-                <input type="submit" class="btn" value="Entrar">
+                <input type="submit" class="btn btnblue theme-color" value="Entrar">
             </div>
           </form>
         </div>
       </div>
     </div>
+</div>
+</div>
 </div>
 </div>

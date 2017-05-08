@@ -147,7 +147,7 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 						<div  class="input-field inline col s6">
 							<label>Cedula Original: </label>
 						</div>
-						<div class="input-field inline col s4">
+						<div class="input-field inline col s4" >
 							<input name="group_cedula" type="radio" id="test1" value="1" />
 							<label for="test1">Si</label>
 							<input name="group_cedula" type="radio" id="test2" value="0" right/>
@@ -257,78 +257,17 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 						<label for="textarea1">Observaciones</label>
 					</div>
 				</div>
-
-
-
-
-				<!-- DATOS FAMILIARES -->
-
-		<!-- 		<h5>Datos Familiares</h5>
-				<div class="row">
-
-					<div class="input-field col s12">
-						<input name="name_familiar" id="last_name" type="text" class="validate" >
-						<label for="last_name">Familiares</label>
-					</div>
-				
-				</div>
-
-				<div class="row">
-
-
-					<div class="input-field col s12">
-						<input name="direccion" id="last_name" type="text" class="validate" >
-						<label for="last_name">Direccion</label>
-					</div>
-				
-					
-				</div>
-
-
-				<div class="row">
-					
-					<div class="input-field col s12">
-						<input name="telefono" id="last_name" type="text" class="validate" onkeypress="return event.charCode >= 47 && event.charCode <= 57">
-						<label for="last_name">Telefonos</label>
-					</div>
-
-				
-
-				</div>
-
-
-
-
-
-
-				
-
-				<h5>Referente Social</h5>
-				<div class="row">
-
-					<div class="input-field col s12">
-						<input name="name_referente" id="last_name" type="text" class="validate" >
-						<label for="last_name">Nombres</label>
-					</div>
-					
-				</div>
-				<div class="row">
-
-				
-					
-				</div> -->
-
 				<div class="row">		
 
 					<div class="col s10">
 
-						<a href="#" class="waves-effect waves-light btn right">CANCELAR</a>
+						<a href="panel-ancianos.php" class="theme-color btn right">CANCELAR</a>
 
 					</div>
 
 					<div class="col s2">
 
-						<button class="btn waves-effect waves-light" type="submit" name="action">
+						<button class="btn theme-color" type="submit" name="action">
 							AGREGAR             			
 						</button>
 

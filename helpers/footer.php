@@ -1,5 +1,5 @@
 <main></main>
-<footer class="teal lighten-1">
+<footer class="#3949ab indigo darken-1">
   <div class="container">
     <div class="row">
       <div class="col l12 s12">
