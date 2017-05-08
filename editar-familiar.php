@@ -48,7 +48,7 @@ $tel ='';
 
 	<div class="row">
 		<div class="card-panel">
-		<form method="POST" action="controllers/addfamiliar.php">
+		<form id="from1" method="POST" action="controllers/addfamiliar.php">
 					<div class="row">
 					<input type="hidden" name="ced" value="<?php echo $ced; ?>">
 
@@ -77,8 +77,8 @@ $tel ='';
 
 					<div class="col s2">
 
-						<button class="btn theme-color" type="submit" name="action">
-							AGREGAR             			
+						<button class="btn theme-color" type="submit"  name="action">
+							Aplicar<i class="material-icons right">done</i>          			
 						</button>
 
 					</div>
@@ -86,7 +86,31 @@ $tel ='';
 				</div>
 				</div>
 </div>
+    <script>
+    document.querySelector('#from1').addEventListener('submit', function(e) {
+        var form = this;
+        e.preventDefault();
 
+        swal({
+          title: 'Estas Seguro?',
+          //text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar Cambios!'
+        }).then(function () {
+          swal(
+            'Editado!',
+            'El dato a sido editado.',
+            'Terminado'
+          )
+          form.submit();
+        })
+        
+    });
+
+    </script>
 
 <?php 	include 'helpers/footer.php';  ?>
 <?php 	include 'helpers/scripts.php';  ?>

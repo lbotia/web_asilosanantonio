@@ -14,7 +14,7 @@
           <form method="POST" action="controllers/checklogin.php">
              <div class="row">
                 <div class="input-field col s12">
-                    <input name="username" type="text" class="validate">Usuario</label>
+                    <input name="username" type="text" class="validate"><label for="text">Usuario</label>
                 </div>
             </div>
             <div class="row">
@@ -34,3 +34,13 @@
 </div>
 </div>
 </div>
+
+<!-- <script type="text/javascript">
+swal({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  type: 'error',
+  confirmButtonText: 'Cool'
+})
+
+</script> -->

@@ -7,6 +7,9 @@
 
         <!-- CSS  -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="js/sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="css/sweetalert2.min.css">
         <link href="css/materialize.css" type="text/css" rel="stylesheet" css="screen,projection"/>
         <link rel="stylesheet" type="text/css" href="css/mystyle.css">
         <link rel="shortcut icon" href="img/bd.png" type="image/jpg">
