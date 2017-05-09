@@ -86,7 +86,7 @@ if ($resdata->num_rows > 0 ) {
       <span class="card-title grey-text text-darken-4">Agregar nuevo referente social<i class="material-icons right">close</i></span>
     
 
-      <form method="POST" action="controllers/addreferentesocial.php">
+      <form id="form_add" method="POST" action="controllers/addreferentesocial.php">
 
           <div class="row">
             <input type="hidden" name="ced" value="<?php echo $ced; ?>">
@@ -127,3 +127,39 @@ if ($resdata->num_rows > 0 ) {
 
 <?php 	include 'helpers/footer.php';  ?>
 <?php 	include 'helpers/scripts.php';  ?>
+
+<script type="text/javascript">
+
+        // EDIT STATION CONFIRMATION 
+        var swalFunction = function (form){
+          swal({
+            title: 'Estas Seguro?',
+            //text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar!'
+          }).then(function () {
+            swal(
+              'Agregado!',
+              'Datos Confirmados.',
+              'success'
+              )
+            setTimeout(function(){
+                  //do what you need here
+                  form.submit();
+                }, 1500);
+            
+          })
+        };
+        document.querySelector('#form_add').addEventListener('submit', function(e) {
+          var form = this;
+          e.preventDefault();
+          swalFunction(form);
+
+          
+        });
+
+        
+      </script>

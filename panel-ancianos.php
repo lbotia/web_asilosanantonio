@@ -18,7 +18,7 @@ include 'helpers/navancianos.php';
 
 // consulta datos anciano
 
-$sql = 'select * from listar_ancianos';
+$sql = 'SELECT * FROM listar_ancianos ORDER BY 3';
 
 $res = $conn->query($sql);
 
@@ -28,7 +28,7 @@ $searchtext;
 if (isset($_REQUEST['search_text'])) {
 	$searchtext = $_REQUEST['search_text'] ; 
 
-	$sqlSearch ='select * from listar_ancianos where nombres like "%'.$searchtext.'%" or cedula like "%'.$searchtext.'%"';
+	$sqlSearch ='SELECT * FROM listar_ancianos WHERE nombres LIKE "%'.$searchtext.'%" or cedula LIKE "%'.$searchtext.'%" ORDER BY 3';
 	//echo $searchtext;
 	$resSearch = $conn->query($sqlSearch);
 

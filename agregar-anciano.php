@@ -93,9 +93,6 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 
 
 
-
-
-
 <!-- //FORMULARIO DE INSERTAR ANCIANO -->
 
 
@@ -105,7 +102,7 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 	<div class="row">
 		<div class="card-panel">
 			<h5>Datos Personales</h5>
-			<form method="POST" action="controllers/addanciano.php">
+			<form id="form" method="POST" action="controllers/addanciano.php">
 
 				<div class="row">
 
@@ -138,7 +135,7 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 				<div class="row">
 
 					<div class="input-field col s6">
-						<input name="cedula" id="last_name" type="text" class="validate"  onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+						<input name="cedula" id="last_name" type="text" class="validate"  onkeypress="return event.charCode >= 47 && event.charCode <= 57 || event.charCode <= 8">
 						<label for="last_name">Cedula</label>
 					</div>
 
@@ -284,21 +281,44 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php 	include 'helpers/footer.php';  ?>
 <?php 	include 'helpers/scripts.php';  ?>
+
+<script type="text/javascript">
+
+        // EDIT STATION CONFIRMATION 
+        var swalFunction = function (form){
+        	swal({
+        	  title: 'Estas Seguro?',
+        	  //text: "You won't be able to revert this!",
+        	  type: 'warning',
+        	  showCancelButton: true,
+        	  confirmButtonColor: '#3085d6',
+        	  cancelButtonColor: '#d33',
+        	  confirmButtonText: 'Aceptar!'
+        	}).then(function () {
+        	    swal(
+        	          'Agregado!',
+        	          'Datos Confirmados.',
+        	          'success'
+        	        )
+        	    setTimeout(function(){
+        	        //do what you need here
+        	        form.submit();
+        	    }, 1500);
+        	  
+        	})
+        };
+        document.querySelector('#form').addEventListener('submit', function(e) {
+        var form = this;
+        e.preventDefault();
+        swalFunction(form);
+
+        
+        });
+
+        
+    </script>
 <script>
 	$(document).ready(function () {
 		$(".button-collapse").sideNav();

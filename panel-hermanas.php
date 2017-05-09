@@ -37,7 +37,7 @@ if (isset($_REQUEST['search_text'])) {
 
 ?>
 
-<div class="container">
+
 
 	<div class="row">
 		<h4 class="center-align">BASE DE DATOS HERMANAS</h4>
@@ -207,7 +207,7 @@ if (isset($_REQUEST['search_text'])) {
 
 
 
-</div>
+
 
 
 </div>

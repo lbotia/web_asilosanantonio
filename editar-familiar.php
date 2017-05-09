@@ -86,30 +86,41 @@ $tel ='';
 				</div>
 				</div>
 </div>
-    <script>
-    document.querySelector('#from1').addEventListener('submit', function(e) {
+    <script type="text/javascript">
+
+        // EDIT STATION CONFIRMATION 
+        var swalFunction = function (form){
+
+            swal({
+              title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+            }).then(function () {
+                swal(
+                      'Editado!',
+                      'El dato a sido editado.',
+                      'success'
+                    )
+                setTimeout(function(){
+                    //do what you need here
+                    form.submit();
+                }, 1500);
+              
+            })
+        };
+        document.querySelector('#from1').addEventListener('submit', function(e) {
         var form = this;
         e.preventDefault();
+        swalFunction(form);
 
-        swal({
-          title: 'Estas Seguro?',
-          //text: "You won't be able to revert this!",
-          type: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Confirmar Cambios!'
-        }).then(function () {
-          swal(
-            'Editado!',
-            'El dato a sido editado.',
-            'Terminado'
-          )
-          form.submit();
-        })
         
-    });
+        });
 
+        
     </script>
 
 <?php 	include 'helpers/footer.php';  ?>

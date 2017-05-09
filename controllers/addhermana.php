@@ -19,7 +19,7 @@ if (isset($_POST)) {
 
 	if ($conn->query($sql) === TRUE) {
 
-		header('Location: ../agregar-hermana.php');
+		header('Location: ../panel-hermanas.php');
 		// ENVIAR A LA LISTA DE HERMANAS
 		}else {
 

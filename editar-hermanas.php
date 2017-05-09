@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 <div class="container">
 	<div class="row">
 		<div class="card-panel">
-			<form method="POST" action="controllers/addhermana.php">
+			<form id="form_edit" method="POST" action="controllers/edithermana.php">
 
 				<div class="row">
 					<div class="input-field col s12">
@@ -92,8 +92,8 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 					</div>
 
 					<div class="input-field col s6">
-						<input name="fecha_nacimiento" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
-						<label for="dob">Fecha de Nacimiento</label>
+						<input placeholder="Fecha nacimiento" name="fecha" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
+						<!-- <label for="dob">Fecha de Nacimiento</label> -->
 					</div>
 				</div>
 
@@ -123,6 +123,8 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 
 				</div>
 
+				<input type="hidden" name="ced" value="<?php echo $ced; ?>">
+
 				<div class="row">		
 
 					<div class="col s10">
@@ -149,6 +151,42 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 
 <?php 	include 'helpers/footer.php';  ?>
 <?php 	include 'helpers/scripts.php';  ?>
+<script type="text/javascript">
+
+        // EDIT STATION CONFIRMATION 
+        var swalFunction = function (form){
+
+            swal({
+              title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+            }).then(function () {
+                swal(
+                      'Editado!',
+                      'El dato a sido editado.',
+                      'success'
+                    )
+                setTimeout(function(){
+                    //do what you need here
+                    form.submit();
+                }, 1500);
+              
+            })
+        };
+        document.querySelector('#form_edit').addEventListener('submit', function(e) {
+        var form = this;
+        e.preventDefault();
+        swalFunction(form);
+
+        
+        });
+
+        
+    </script>
 <script>
          $(document).ready(function () {
             $(".button-collapse").sideNav();

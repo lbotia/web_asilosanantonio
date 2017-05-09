@@ -81,26 +81,43 @@ while ($row = mysqli_fetch_assoc($resDep)) {
 
 
 ?>
+<?php 
+	// TRAER LISTA DE DISCAPACIDAD
+$sql_list_disc = 'SELECT * FROM discapacidad';
+$list_disc = array();
 
+
+
+$res_list_disc = $conn->query($sql_list_disc);
+while ($row = mysqli_fetch_assoc($res_list_disc)) {
+
+	$list_disc[$row['iddiscapacidad']] = $row['nombre_discapacidad'];
+
+}
+
+	//echo var_dump($list_disc);
+
+ // traer discapacidades del anciano
+	$arrDisc = array();
+	$sql_disc = 'SELECT * FROM listar_discapacidades WHERE cedula ="'.$ced.'"';
+
+	$resDisc = $conn->query($sql_disc);
+
+	while ($r = mysqli_fetch_assoc($resDisc)) {
+		$arrDisc[$r['iddiscapacidad']] = $r['discapacidad']; 
+	}
+
+	//echo var_dump($arrDisc);
+
+
+
+ ?>
 
 <?php 
 
 $sqldata = 'SELECT * FROM listar_ancianos WHERE cedula = "'.$ced.'"';
 $resdata = $conn->query($sqldata);
 
-$names = '';
-$apellidos = '';
-$cedula = '';
-$ced_ori = '';
-$f_ingre = '';
-$f_nac = '';
-$gen = '';
-$sub = '';
-$idreg ='';
-$id_eps = '';
-$id_dep = '';
-$obs = '';
-$edad = '';
 
 
 	if ($resdata->num_rows > 0) {
@@ -131,7 +148,7 @@ $edad = '';
 	<div class="row">
 		<div class="card-panel">
 			<h5><?php echo $names; echo ' '.$apellidos  ?>, edad <?php echo $edad; ?> años </h5>
-			<form method="POST" action="controllers/addanciano.php">
+			<form id="form_edit" method="POST" action="controllers/addanciano.php">
 
 				<div class="row">
 
@@ -164,7 +181,7 @@ $edad = '';
 				<div class="row">
 
 					<div class="input-field col s6">
-						<input name="cedula" value='<?php echo $cedula; ?>' id="last_name" type="text" class="validate"  onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+						<input name="cedula" value='<?php echo $cedula; ?>' id="last_name" type="text" class="validate"  onkeypress="return event.charCode >= 47 && event.charCode <= 57 || event.charCode <= 8"">
 						<label for="last_name">Cedula</label>
 					</div>
 
@@ -282,7 +299,35 @@ $edad = '';
 						<label>DEPENDENCIA</label>
 
 					</div>
+						<div class="input-field col s6">
+							<select name="discapacidad[]" multiple required>
+								<option value="" disabled selected>Seleccione Discapacidad</option>
+								
+								<?php 
 
+								foreach ($list_disc as $idDis => $nomDis) {
+									$aux = existe($idDis,$arrDisc);
+									$selected_dis = ($aux == true) ? 'selected': '';
+									
+									echo '<option value='.$idDis.' '.$selected_dis.'>'.$nomDis.'</option>';
+								}
+
+
+								function existe($idDis,$list_disc){
+									if ($list_disc != null) {
+										foreach ($list_disc as $id => $dis) {
+											if ($id == $idDis) {
+												return true;
+											}
+										}
+										return false;
+									}
+								}
+								?>
+
+							</select>
+							<label>Discapacidad</label>
+						</div>
 
 
 				</div>
@@ -304,7 +349,7 @@ $edad = '';
 					<div class="col s2">
 
 						<button class="btn theme-color" type="submit" name="action">
-							AGREGAR             			
+							APLICAR             			
 						</button>
 
 					</div>
@@ -321,6 +366,43 @@ $edad = '';
 </div>
 <?php 	include 'helpers/footer.php';  ?>
 <?php 	include 'helpers/scripts.php';  ?>
+
+<script type="text/javascript">
+
+        // EDIT STATION CONFIRMATION 
+        var swalFunction = function (form){
+
+            swal({
+              title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+            }).then(function () {
+                swal(
+                      'Editado!',
+                      'El dato a sido editado.',
+                      'success'
+                    )
+                setTimeout(function(){
+                    //do what you need here
+                    form.submit();
+                }, 1500);
+              
+            })
+        };
+        document.querySelector('#form_edit').addEventListener('submit', function(e) {
+        var form = this;
+        e.preventDefault();
+        swalFunction(form);
+
+        
+        });
+
+        
+    </script>
 <script>
 	$(document).ready(function () {
 		$(".button-collapse").sideNav();
