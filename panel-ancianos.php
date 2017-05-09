@@ -115,16 +115,21 @@ if (isset($_REQUEST['search_text'])) {
 
 							<td>
 							
-							<div class="input-field col s12">
+							
 							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
 								<button class="btn theme-color right" type="submit" name="action">
 									Ver mas
 									<i class="material-icons right">mode_edit</i>
 								</button>
-							</div>
+							
 
 							</td>
 							</form>
+							<td>
+							<button class="btn theme-color right" onclick="myFunction(this.value)" type="submit" name="delete" value="'.$ced.'" >
+									<i class="material-icons">delete</i>
+								</button>
+							</td>
 						</tr>';
 
 					}
@@ -185,16 +190,22 @@ if (isset($_REQUEST['search_text'])) {
 
 							<td>
 							
-							<div class="input-field col s12">
+							
 							<input type="hidden" name="cedula" id="cedula" value="'.$row['cedula'].'">
 								<button class="btn theme-color right" type="submit" name="action">
 									Ver mas
 									<i class="material-icons right">mode_edit</i>
 								</button>
-							</div>
+							
 
 							</td>
 							</form>
+
+							<td>
+								<button class="btn theme-color right" onclick="myFunction(this.value)" type="submit" name="delete" value="'.$ced.'" >
+									<i class="material-icons">delete</i>
+								</button>
+							</td>
 						</tr>';
 
 					}
@@ -222,6 +233,31 @@ if (isset($_REQUEST['search_text'])) {
 </div>
 
 
+<script>
+	function myFunction(value) {
+
+		swal({
+			title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+          }).then(function () {
+          	swal(
+          		'Eliminado!',
+          		'El dato a sido Elminado.',
+          		'success'
+          		)
+          	setTimeout(function(){
+                    //do what you need here
+                    window.location.href = "controllers/deleteanciano.php?ced=" + value; 
+                }, 1500);
+          	
+          })
+      }
+  </script>
 <?php 
 
 include 'helpers/footer.php';

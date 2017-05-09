@@ -103,7 +103,7 @@ if ($conn->multi_query($sql) === TRUE) {
 // echo var_dump($dis);
 // echo "<BR>";
 // echo sizeof($dis);
-
+header("Refresh:0; url=../panel-ancianos.php");
 
 }
 

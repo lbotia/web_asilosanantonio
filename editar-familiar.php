@@ -112,13 +112,18 @@ $tel ='';
               
             })
         };
-        document.querySelector('#from1').addEventListener('submit', function(e) {
+        document.querySelector('#form1').addEventListener('submit', function(e) {
         var form = this;
         e.preventDefault();
         swalFunction(form);
-
         
+        });  
+        document.querySelector('#form_2').addEventListener('submit', function(e) {
+        var form = this;
+        e.preventDefault();
+        swalFunction(form);
         });
+        
 
         
     </script>

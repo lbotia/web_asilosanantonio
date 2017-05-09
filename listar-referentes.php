@@ -62,7 +62,7 @@ if ($resdata->num_rows > 0 ) {
             $out .= '<td>'.$nom.'</td>';
             $out .= '<td>
             <form  action="editar-referente-social.php" method="POST">
-              <div class="input-field col s12">
+
               <input type="hidden" name="cedula" id="cedula" value="'.$ced.'">
               <input type="hidden" name="nameref" id="nameref" value="'.$nom.'">
               <input type="hidden" name="idref" id="idref" value="'.$idref.'">
@@ -71,7 +71,14 @@ if ($resdata->num_rows > 0 ) {
                   <i class="material-icons right">mode_edit</i>
                 </button>
               </form>
-            </div></td>';
+            </td>
+            <td>
+                <button class="btn theme-color right" onclick="myFunction(this.value,'.$idref.')" type="submit" name="delete" value="'.$ced.'" >
+                  <input type="hidden" name="idref" id="idref" value="'.$idref.'">
+                  <i class="material-icons">delete</i>
+                </button>
+            </td>
+            ';
             $out .= '</tr>';
                     //echo $nom;
           }
@@ -163,3 +170,31 @@ if ($resdata->num_rows > 0 ) {
 
         
       </script>
+
+
+<script>
+  function myFunction(value,value2) {
+    //alert(value2);
+
+    swal({
+      title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+          }).then(function () {
+            swal(
+              'Eliminado!',
+              'El dato a sido Elminado.',
+              'success'
+              )
+            setTimeout(function(){
+                    //do what you need here
+                    window.location.href = "controllers/deletereferentesocial.php?ced=" + value + "&idref=" + value2; 
+                }, 1500);
+            
+          })
+      }
+  </script>

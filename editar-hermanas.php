@@ -12,9 +12,32 @@ include_once 'controllers/config.php'; ?>
 
 <?php 
 
+
+
+
+
 if (isset($_POST)) {
 	$ced = $_REQUEST['cedula'];
 	//echo $ced;
+
+	if (isset($_POST['delete'])) {
+		echo var_dump($_POST['delete']);
+
+		//BORRAR
+
+		$sqlDel = 'DELETE FROM hermana WHERE cedula_hermana = "'.$ced.'"';
+
+		if ($conn->query($sqlDel) === TRUE) {
+			echo "ELIMINADO";
+		}else {
+			echo "ERROR AL ELIMINAR";
+		}
+
+		header("Refresh:0; url=panel-hermanas.php");
+
+
+
+	}
 
 }
 
@@ -177,13 +200,16 @@ while ($row = mysqli_fetch_assoc($resEps)) {
               
             })
         };
-        document.querySelector('#form_edit').addEventListener('submit', function(e) {
+        document.querySelector('#form1').addEventListener('submit', function(e) {
         var form = this;
         e.preventDefault();
         swalFunction(form);
 
         
         });
+
+
+
 
         
     </script>
