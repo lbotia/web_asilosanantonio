@@ -10,49 +10,39 @@ if (isset($_POST)) {
 
 	 $ced = $_REQUEST['ced'];
 		echo $ced;
-	 $name_fam = $_POST['name_familiar'];
-	 $dire =$_POST['direccion'];
-	 $tel = $_POST['telefonos'];
-	 // echo $name_fam.'<br>';
-	 // echo $dire.'<br>';
-	 // echo $tel.'<br>';
+	 $name_fam = $_POST['name_f'];
+		echo $name_fam.'<br>';
+	
+	$sqlTam = 'SELECT COUNT(*) as total_fam FROM listar_familiares WHERE cedula_anciano = "'.$ced.'"';
+	$resTam = $conn->query($sqlTam);
+	$tam_f = 0; 
+	
+	if ($resTam->num_rows > 0) {
+		while ($r = $resTam->fetch_assoc()){
+			$tam_f = $r['total_fam'];
+		}
+	}
+	$tam_f = $tam_f + 1;
+	$newid_fam = $ced.$tam_f;
+	echo "NUEVO ID: " . $newid_fam;
 
-	 $sqlValidate = 'select * from familia where anciano_cedula_anciano = "'.$ced.'"';
+	$sql = 'INSERT INTO familiares
+			(id_familiares, nombres_familiares)
+			VALUES
+			('.$newid_fam.',"'.$name_fam.'");';
+	echo $sql;
 
-	 $resV = $conn->query($sqlValidate);
-
-	 if (mysqli_num_rows($resV) > 0) {
-	 		//	echo "tiene familia";
-	 	$sql = 'update familia set nombres="'.$name_fam.'" ,direccion = "'.$dire.'" , telefonos = "'.$tel.'" where anciano_cedula_anciano = "'.$ced.'"';
-
-	 	if ($conn->query($sql)===TRUE) {
-	 		echo "Se modifico correctamente";
-	 	}else{
-	 		echo "error al modificar:".$conn->error;
-	 	}
-
-
-
-
-	 	}else {
-	 		$sql = 'INSERT INTO familia
-	 		(nombres, direccion, telefonos, anciano_cedula_anciano)
-	 		VALUES("'.$name_fam.'", "'.$dire.'", "'.$tel.'", "'.$ced.'")';
-
-
-	 		if ($conn->query($sql) === TRUE) {
-
-	 			header('Location: ../panel-ancianos.php');
-	 			// ENVIAR A LA LISTA FAMILIAR
-	 			}else {
-
-	 				echo "ERROR NO SE AGREGO";
-	 				// ENVIAR A UNA PAGINA DE ERROR 
-	 			}
-	 			
-	 	}	
-
-	 	header('Location: ../ver_mas_ancianos.php?cedula='.$ced.'');
+	$sql .= 'INSERT INTO anciano_tel_familiar_direccion
+			(cedula_anciano, id_fam, id_tel, id_dir)
+			VALUES("'.$ced.'",'.$newid_fam.', NULL, NULL);';
+	
+	if ($conn->multi_query($sql) === TRUE or die(mysql_error())) {
+		echo "PROCESADO";
+	}else {
+		echo "ERROR MULTIQUERY";
+	}
+	 
+	header('Location: ../ver_mas_ancianos.php?cedula='.$ced.'');
 
 
 	

@@ -81,12 +81,6 @@ if ($resdata->num_rows > 0) {
 		$dep = $r['dependencia'];
 		$obs =$r['observacion'];
 		$edad = $r['edad'];
-
-
-
-
-
-
 	}	
 }else
 {
@@ -95,26 +89,29 @@ if ($resdata->num_rows > 0) {
 
 ?>
 <?php  
-
-$sqlfam = 'SELECT * FROM familia WHERE anciano_cedula_anciano = "'.$ced.'"';
-$resfam = $conn->query($sqlfam);
 $nom_familiar = array();
 $direc = array();
 $tel = array();
+//FAMILIARES
+$sqlfam = 'SELECT * FROM listar_datos_familiares WHERE cedula_anciano = "'.$ced.'"';
+$resfam = $conn->query($sqlfam);
 
 
 if ($resfam->num_rows > 0) {
 	while ($r = $resfam->fetch_assoc()) {
-//FAMILIARES
-		$nom_familiar = $r['nombres'];
-		$direc = $r['direccion'];
-		$tel = $r['telefonos'];
-
+		if($r['nombres_familiares'] != NULL){
+			$nom_familiar[] = $r['nombres_familiares'];
+		}if ($r['direccion'] != NULL) {
+			$direc[] = $r['direccion'];
+		}if ($r['telefono'] != NULL) {
+			$tel[] = $r['telefono'] ;
+		}
 	}	
 }else
 {
 		//echo "NO HAY DATOS";
 }
+
 ?>
 
 
@@ -230,8 +227,6 @@ if ($resfam->num_rows > 0) {
 			<table class="striped">
 
 				<form method="POST" action="editar-familiar.php">
-
-
 					<tbody>
 
 						<tr>
@@ -239,9 +234,11 @@ if ($resfam->num_rows > 0) {
 							<td>
 								<?php 					
 								if ($nom_familiar == NULL) {
-									echo "";
+									echo "Sin Familiares";
 								}else { 					
-									echo $nom_familiar;
+									foreach ($nom_familiar as $nom) {
+										echo $nom.', ';
+									}
 								}
 								?>
 							</td>
@@ -252,10 +249,11 @@ if ($resfam->num_rows > 0) {
 							<td>
 								<?php 
 								if ($direc == NULL) {
-									echo "";
+									echo "Sin Direcciones";
 								}else {
-
-									echo $direc;
+									foreach ($direc as $dir) {
+										echo $dir.', ';
+									}
 								}					
 								?>
 							</td>
@@ -266,10 +264,11 @@ if ($resfam->num_rows > 0) {
 							<td>
 								<?php 
 								if ($tel == NULL) {
-									echo "";
+									echo "Sin Telefonos";
 								}else {
-
-									echo $tel;
+									foreach ($tel as $t) {
+										echo $t.', ';
+									}
 								}
 								?>
 							</td>

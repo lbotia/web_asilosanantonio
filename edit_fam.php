@@ -13,10 +13,9 @@ include_once 'controllers/config.php'; ?>
 <?php 
 
 if (isset($_POST)) {
-	$ced = $_REQUEST['cedula'];
-	$nameref = $_REQUEST['nameref'];
-	$idref = $_REQUEST['idref'];
-
+    $ced = $_POST['ced'];
+    $id_f = $_POST['id_f'];
+	$nom_f = $_POST['nom_f'];
 
 
 }
@@ -26,15 +25,15 @@ if (isset($_POST)) {
 
 		<div class="row">
 			<div class="card-panel">
-				<form id="form" method="POST" action="controllers/editreferentesocial.php">
-				<?php echo '<input type="hidden" name="cedula" id="cedula" value="'.$ced.'">';
-						echo '<input type="hidden" name="idref" id="idref" value="'.$idref.'">'; 
+				<form id="form" method="POST" action="controllers/fedit_fam.php">
+				<?php echo '<input type="hidden" name="ced" id="ced" value="'.$ced.'">';
+						echo '<input type="hidden" name="id_f" id="id_f" value="'.$id_f.'">'; 
 						?>
 					<table class="striped">
 						<div class="row">
 
 							<div class="input-field col s12">
-								<input name="name_referente" value="<?php echo $nameref; ?>" id="last_name" type="text" class="validate" >
+								<input name="name_f" value="<?php echo $nom_f; ?>" id="last_name" type="text" class="validate" >
 								<label for="last_name">Nombres</label>
 							</div>
 

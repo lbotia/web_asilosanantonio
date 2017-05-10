@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "user_san_antonio", "123", 'san_antonio');
+$conn = mysqli_connect("localhost", "user_san_antonio", "123", 'san_antonioV2');
 if (!$conn->set_charset("utf8")) {
     //printf("Error cargando el conjunto de caracteres utf8: %s\n", $conn->error);
     exit();
