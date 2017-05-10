@@ -142,8 +142,181 @@ echo "<br>";
 </div>  
 
 <!--FIN FAMILIARES-->
+<!--DIRECCIONES-->
+<div class="container">
 
+  <div class="card">
+
+    <div class="card-content">
+      <table class="striped">
+
+        <thead>
+          <tr>
+            <th>DIRECCIONES</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php 
+          $out = '';
+          foreach ($direc as $id_dir => $nom_dir) {
+            $out .= '<tr>';
+            $out .= '<td>'.$nom_dir.'</td>';
+            $out .= '<td>
+            <form action="edit_dir.php" method="POST">
+
+              <input type="hidden" name="ced" id="ced" value="'.$ced.'">
+              <input type="hidden" name="id_dir" id="id_dir" value="'.$id_dir.'">
+			        <input type="hidden" name="nom_dir" id="nom_dir" value="'.$nom_dir.'">
+                <button class="btn theme-color right" type="submit" name="action">
+                  Editar
+                  <i class="material-icons right">mode_edit</i>
+                </button>
+              </form>
+            </td>
+            <td>
+                <button class="btn theme-color" onclick="deleteDir(this.value,'.$ced.')" type="submit" name="delete" value="'.$id_dir.'" >
+                  <input type="hidden" name="nom_dir" id="nom_dir" value="'.$nom_dir.'">
+                  <i class="material-icons">delete</i>
+                </button>
+            </td>
+            ';
+            $out .= '</tr>';
+                    //echo $nom;
+          }
+          echo $out;
+          ?>          
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-reveal">
+    <!-- FORMULARIO DE AGREGAR DIRECCION-->
+      <span class="card-title grey-text text-darken-4">Agregar Nueva Direccion<i class="material-icons right">close</i></span>
+    
+
+      <form id="form_add2" method="POST" action="controllers/adddireccion.php">
+
+          <div class="row">
+            <input type="hidden" name="ced" value="<?php echo $ced; ?>">
+
+            <div class="input-field col s12">
+              <input name="name_d" id="name_d" type="text" required>
+              <label for="last_name">Direccion</label>
+            </div>
+          </div>
+
+        <div class="input-field col s12">
+          <input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
+
+          <button class="btn theme-color right" type="submit" name="action">
+            Aplicar cambios
+            <i class="material-icons right">done</i>
+          </button>
+        </div>
+      </form>
+
+
+      <!-- FIN FORMULARIO -->
+    </div>
+    <div class="card-action">
+      <div class="row">
+        <div class="col s3 offset-s9">
+          <a class="activator theme-color btn">Agregar Nuevo<i class="material-icons right">add</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!--FIN DIRECCIONES-->
 <!-- TELEFONOS -->
+<div class="container">
+
+  <div class="card">
+
+    <div class="card-content">
+      <table class="striped">
+
+        <thead>
+          <tr>
+            <th>TELEFONOS</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php 
+          $out = '';
+          foreach ($direc as $id_dir => $nom_dir) {
+            $out .= '<tr>';
+            $out .= '<td>'.$nom_dir.'</td>';
+            $out .= '<td>
+            <form action="edit_dir.php" method="POST">
+
+              <input type="hidden" name="ced" id="ced" value="'.$ced.'">
+              <input type="hidden" name="id_dir" id="id_dir" value="'.$id_dir.'">
+			        <input type="hidden" name="nom_dir" id="nom_dir" value="'.$nom_dir.'">
+                <button class="btn theme-color right" type="submit" name="action">
+                  Editar
+                  <i class="material-icons right">mode_edit</i>
+                </button>
+              </form>
+            </td>
+            <td>
+                <button class="btn theme-color" onclick="deleteDir(this.value,'.$ced.')" type="submit" name="delete" value="'.$id_dir.'" >
+                  <input type="hidden" name="nom_dir" id="nom_dir" value="'.$nom_dir.'">
+                  <i class="material-icons">delete</i>
+                </button>
+            </td>
+            ';
+            $out .= '</tr>';
+                    //echo $nom;
+          }
+          echo $out;
+          ?>          
+
+        </tbody>
+      </table>
+    </div>
+    <div class="card-reveal">
+    <!-- FORMULARIO DE AGREGAR DIRECCION-->
+      <span class="card-title grey-text text-darken-4">Agregar Nueva Direccion<i class="material-icons right">close</i></span>
+    
+
+      <form id="form_add2" method="POST" action="controllers/adddireccion.php">
+
+          <div class="row">
+            <input type="hidden" name="ced" value="<?php echo $ced; ?>">
+
+            <div class="input-field col s12">
+              <input name="name_d" id="name_d" type="text" required>
+              <label for="last_name">Direccion</label>
+            </div>
+          </div>
+
+        <div class="input-field col s12">
+          <input type="hidden" name="cedula" id="cedula" value="<?php echo $ced ?>">
+
+          <button class="btn theme-color right" type="submit" name="action">
+            Aplicar cambios
+            <i class="material-icons right">done</i>
+          </button>
+        </div>
+      </form>
+
+
+      <!-- FIN FORMULARIO -->
+    </div>
+    <div class="card-action">
+      <div class="row">
+        <div class="col s3 offset-s9">
+          <a class="activator theme-color btn">Agregar Nuevo<i class="material-icons right">add</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> 
 <!-- TELEFONOS -->
 
 
@@ -180,6 +353,13 @@ echo "<br>";
 
           
         });
+        document.querySelector('#form_add2').addEventListener('submit', function(e) {
+          var form = this;
+          e.preventDefault();
+          swalFunction(form);
+
+          
+        });
 
         
       </script>
@@ -205,6 +385,32 @@ echo "<br>";
             setTimeout(function(){
                     //do what you need here
                     window.location.href = "controllers/deleteFamiliar.php?ced=" + ced + "&id_fam=" + id_fam; 
+                }, 1500);
+            
+          })
+      }
+  </script>
+<script>
+  function deleteDir(id_dir,ced) {
+    //alert(value2);
+
+    swal({
+      title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+          }).then(function () {
+            swal(
+              'Eliminado!',
+              'El dato a sido Elminado.',
+              'success'
+              )
+            setTimeout(function(){
+                    //do what you need here
+                    window.location.href = "controllers/deleteDireccion.php?ced=" + ced + "&id_dir=" + id_dir; 
                 }, 1500);
             
           })

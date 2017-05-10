@@ -42,7 +42,7 @@ if (isset($_POST)) {
 		echo "ERROR MULTIQUERY";
 	}
 	 
-	header('Location: ../ver_mas_ancianos.php?cedula='.$ced.'');
+	header('Location: ../editar-familiar.php?cedula='.$ced.'');
 
 
 	

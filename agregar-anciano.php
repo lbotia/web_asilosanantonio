@@ -12,9 +12,6 @@ include_once 'controllers/config.php'; ?>
 
 
 <?php 
-
-
-
 	// TRAER LISTA DE GENERO
 $sqlReg = 'SELECT * FROM regimen';
 $arrReg = array();

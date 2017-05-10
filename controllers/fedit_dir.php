@@ -5,18 +5,22 @@ include_once 'config.php';
 
 if (isset($_POST)) {
     $ced = $_POST['ced'];
-    $id_f = $_POST['id_f'];
-    $name_f = $_POST['name_f'];
+    $id_dir = $_POST['id_dir'];
+	$nom_d = $_POST['nom_dir'];
 
-    echo $ced;
+/*    echo $ced;
     echo "<br>";
-    echo $id_f;
+    echo $id_dir;
     echo "<br>";
-    echo $name_f;
+    echo $nom_d;
+    echo "<br>";*/
 
-    $sql = 'UPDATE familiares 
-            SET nombres_familiares = "'.$name_f.'"
-            WHERE id_familiares = '.$id_f.'';
+
+    $sql = 'UPDATE direccion
+            SET direccion = "'.$nom_d.'"
+            WHERE id_direccion = '.$id_dir.';';
+
+
 
     if ($conn->query($sql) === TRUE or die(mysql_error())) {
         echo "PROCESADO";
