@@ -14,7 +14,7 @@ include_once 'controllers/config.php'; ?>
 
 if (isset($_POST)) {
 	$ced = $_REQUEST['cedula'];
-	echo $ced;
+	//echo $ced;
 
 }
 
@@ -44,12 +44,6 @@ if ($resfam->num_rows > 0) {
 		//echo "NO HAY DATOS";
 }
 
-
-echo var_dump($direc);
-echo "<br>";
-
-echo var_dump($tel);
-echo "<br>";
 
  ?>
 
