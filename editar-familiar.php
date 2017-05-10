@@ -78,7 +78,7 @@ echo "<br>";
 
               <input type="hidden" name="ced" id="ced" value="'.$ced.'">
               <input type="hidden" name="id_f" id="id_f" value="'.$id_f.'">
-			  <input type="hidden" name="nom_f" id="nom_f" value="'.$nom_f.'">
+			       <input type="hidden" name="nom_f" id="nom_f" value="'.$nom_f.'">
                 <button class="btn theme-color right" type="submit" name="action">
                   Editar
                   <i class="material-icons right">mode_edit</i>
@@ -247,15 +247,15 @@ echo "<br>";
         <tbody>
           <?php 
           $out = '';
-          foreach ($direc as $id_dir => $nom_dir) {
+          foreach ($tel as $id_tel => $num_tel) {
             $out .= '<tr>';
-            $out .= '<td>'.$nom_dir.'</td>';
+            $out .= '<td>'.$num_tel.'</td>';
             $out .= '<td>
-            <form action="edit_dir.php" method="POST">
+            <form action="edit_tel.php" method="POST">
 
               <input type="hidden" name="ced" id="ced" value="'.$ced.'">
-              <input type="hidden" name="id_dir" id="id_dir" value="'.$id_dir.'">
-			        <input type="hidden" name="nom_dir" id="nom_dir" value="'.$nom_dir.'">
+              <input type="hidden" name="id_tel" id="id_tel" value="'.$id_tel.'">
+			        <input type="hidden" name="num_tel" id="num_tel" value="'.$num_tel.'">
                 <button class="btn theme-color right" type="submit" name="action">
                   Editar
                   <i class="material-icons right">mode_edit</i>
@@ -264,7 +264,7 @@ echo "<br>";
             </td>
             <td>
                 <button class="btn theme-color" onclick="deleteDir(this.value,'.$ced.')" type="submit" name="delete" value="'.$id_dir.'" >
-                  <input type="hidden" name="nom_dir" id="nom_dir" value="'.$nom_dir.'">
+                  <input type="hidden" name="num_tel" id="num_tel" value="'.$num_tel.'">
                   <i class="material-icons">delete</i>
                 </button>
             </td>
@@ -290,7 +290,7 @@ echo "<br>";
 
             <div class="input-field col s12">
               <input name="name_d" id="name_d" type="text" required>
-              <label for="last_name">Direccion</label>
+              <label for="last_name">TELEFONO</label>
             </div>
           </div>
 
