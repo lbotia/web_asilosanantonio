@@ -73,7 +73,7 @@ if ($resdata->num_rows > 0 ) {
               </form>
             </td>
             <td>
-                <button class="btn theme-color right" onclick="myFunction(this.value,'.$idref.')" type="submit" name="delete" value="'.$ced.'" >
+                <button class="btn theme-color" onclick="myFunction(this.value,'.$idref.')" type="submit" name="delete" value="'.$ced.'" >
                   <input type="hidden" name="idref" id="idref" value="'.$idref.'">
                   <i class="material-icons">delete</i>
                 </button>

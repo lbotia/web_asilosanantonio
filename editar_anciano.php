@@ -148,7 +148,7 @@ $resdata = $conn->query($sqldata);
 	<div class="row">
 		<div class="card-panel">
 			<h5><?php echo $names; echo ' '.$apellidos  ?>, edad <?php echo $edad; ?> años </h5>
-			<form id="form_edit" method="POST" action="controllers/addanciano.php">
+			<form id="form_edit" method="POST" action="controllers/editanciano.php">
 
 				<div class="row">
 
@@ -181,7 +181,8 @@ $resdata = $conn->query($sqldata);
 				<div class="row">
 
 					<div class="input-field col s6">
-						<input name="cedula" value='<?php echo $cedula; ?>' id="last_name" type="text" class="validate"  onkeypress="return event.charCode >= 47 && event.charCode <= 57 || event.charCode <= 8"">
+						<input type="hidden" name="ced" value="<?php echo $ced; ?>">
+						<input name="cedula" value='<?php echo $cedula; ?>' id="last_name" type="text" class="validate" disabled>
 						<label for="last_name">Cedula</label>
 					</div>
 
@@ -301,7 +302,7 @@ $resdata = $conn->query($sqldata);
 					</div>
 						<div class="input-field col s6">
 							<select name="discapacidad[]" multiple required>
-								<option value="" disabled selected>Seleccione Discapacidad</option>
+								<option value="" disabled selected>SIN DISCAPACIDAD</option>
 								
 								<?php 
 

@@ -98,7 +98,7 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 <div class="container">
 	<div class="row">
 		<div class="card-panel">
-			<form id="form_edit" method="POST" action="controllers/edithermana.php">
+			<form id="form1" method="POST" action="controllers/edithermana.php">
 
 				<div class="row">
 					<div class="input-field col s12">
