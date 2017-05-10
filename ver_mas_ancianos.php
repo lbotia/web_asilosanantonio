@@ -301,7 +301,7 @@ if ($resfam->num_rows > 0) {
 							<td>
 								<?php
 								if ($nom_referen == NULL) {
-									echo "";
+									echo "Sin Referentes Sociales";
 								}else {
 									foreach ($nom_referen as $nom_refe) {
 										echo $nom_refe. ', ';

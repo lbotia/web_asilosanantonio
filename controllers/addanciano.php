@@ -27,17 +27,16 @@ $obs = $_POST['observaciones'];
 
 $sql = 
 'INSERT INTO anciano
- (cedula_anciano, nombres, apellidos, fecha_nacimiento, genero, cedula_original, subsidio_colombia_mayor, regimen_idregimen, eps_ideps, dependencia_iddependencia)
+ (cedula_anciano, nombres, apellidos,
+  fecha_nacimiento, genero, cedula_original, 
+  subsidio_colombia_mayor, regimen_idregimen, 
+  eps_ideps, dependencia_iddependencia,observacion,fecha_ingreso)
  VALUES
  ("'.$ced.'", "'.$nom_an.'", "'.$ape_an.'", 
  "'.$f_nacimiento.'", "'.$gen.'", "'.$ced_ori.'",
   "'.$sub.'", "'.$idregi.'", "'.$ideps.'", 
-  "'.$iddep.'");';
+  "'.$iddep.'","'.$obs.'","'.$f_ingreso.'");';
 
-
-
-$sql .= 'INSERT INTO ingreso (fecha_ingreso, anciano_cedula_anciano)
-			VALUES("'.$f_ingreso.'", "'.$ced.'");';
 
 // agregar discapacidades
 foreach ($dis as $value) {
@@ -45,10 +44,6 @@ foreach ($dis as $value) {
 			(anciano_cedula_anciano, discapacidad_iddiscapacidad)
 			VALUES("'.$ced.'", '.$value.');';
 }
-
-$sql .= ' INSERT INTO observaciones
-(observaciones, anciano_cedula_anciano)
-VALUES("'.$obs.'", "'.$ced.'")';
 
 
 if ($conn->multi_query($sql) === TRUE) {
