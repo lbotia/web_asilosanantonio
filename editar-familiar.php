@@ -25,7 +25,7 @@ if (isset($_POST)) {
 $nom_familiar = array();
 $direc = array();
 $tel = array();
-//FAMILIARES
+
 $sqlfam = 'SELECT * FROM listar_datos_familiares WHERE cedula_anciano = "'.$ced.'"';
 $resfam = $conn->query($sqlfam);
 
@@ -263,7 +263,7 @@ echo "<br>";
               </form>
             </td>
             <td>
-                <button class="btn theme-color" onclick="deleteDir(this.value,'.$ced.')" type="submit" name="delete" value="'.$id_dir.'" >
+                <button class="btn theme-color" onclick="deleteTel(this.value,'.$ced.')" type="submit" name="delete" value="'.$id_tel.'" >
                   <input type="hidden" name="num_tel" id="num_tel" value="'.$num_tel.'">
                   <i class="material-icons">delete</i>
                 </button>
@@ -419,6 +419,33 @@ echo "<br>";
             setTimeout(function(){
                     //do what you need here
                     window.location.href = "controllers/deleteDireccion.php?ced=" + ced + "&id_dir=" + id_dir; 
+                }, 1500);
+            
+          })
+      }
+  </script>
+
+  <script>
+  function deleteTel(id_tel,ced) {
+    //alert(value2);
+
+    swal({
+      title: 'Estas Seguro?',
+              //text: "You won't be able to revert this!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Confirmar Cambios!'
+          }).then(function () {
+            swal(
+              'Eliminado!',
+              'El dato a sido Elminado.',
+              'success'
+              )
+            setTimeout(function(){
+                    //do what you need here
+                    window.location.href = "controllers/deleteTelefono.php?ced=" + ced + "&id_tel=" + id_tel; 
                 }, 1500);
             
           })
