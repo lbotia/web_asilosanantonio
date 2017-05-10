@@ -279,17 +279,17 @@ echo "<br>";
       </table>
     </div>
     <div class="card-reveal">
-    <!-- FORMULARIO DE AGREGAR DIRECCION-->
-      <span class="card-title grey-text text-darken-4">Agregar Nueva Direccion<i class="material-icons right">close</i></span>
+    <!-- FORMULARIO DE AGREGAR TELEFONO-->
+      <span class="card-title grey-text text-darken-4">Agregar Nuevo Telefono<i class="material-icons right">close</i></span>
     
 
-      <form id="form_add2" method="POST" action="controllers/adddireccion.php">
+      <form id="form_add3" method="POST" action="controllers/addtelefono.php">
 
           <div class="row">
             <input type="hidden" name="ced" value="<?php echo $ced; ?>">
 
             <div class="input-field col s12">
-              <input name="name_d" id="name_d" type="text" required>
+              <input name="num_tel" id="num_tel" type="text" required>
               <label for="last_name">TELEFONO</label>
             </div>
           </div>
@@ -354,6 +354,14 @@ echo "<br>";
           
         });
         document.querySelector('#form_add2').addEventListener('submit', function(e) {
+          var form = this;
+          e.preventDefault();
+          swalFunction(form);
+
+          
+        });
+        
+        document.querySelector('#form_add3').addEventListener('submit', function(e) {
           var form = this;
           e.preventDefault();
           swalFunction(form);
