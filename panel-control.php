@@ -15,7 +15,7 @@ include 'helpers/nav.php';
 
 ?>
 
-<div class="valign-wrapper" style="width:100%;height:65%;position: absolute;">
+<div class="valign-wrapper" style="width:100%;height:80%;position: absolute;">
 	<div class="valign" style="width:100%;">
 		<div class="container">
 			<div class="row">

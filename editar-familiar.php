@@ -283,7 +283,7 @@ if ($resfam->num_rows > 0) {
             <input type="hidden" name="ced" value="<?php echo $ced; ?>">
 
             <div class="input-field col s12">
-              <input name="num_tel" id="num_tel" type="text" required>
+              <input name="num_tel" id="num_tel" type="text" required required onkeypress="return event.charCode >= 47 && event.charCode <= 57">
               <label for="last_name">TELEFONO</label>
             </div>
           </div>
