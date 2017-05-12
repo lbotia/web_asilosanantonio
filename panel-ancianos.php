@@ -15,6 +15,15 @@ include 'helpers/navancianos.php';
 ?>
 
 <?php 
+$sqlCount = 'SELECT count(*) AS total FROM listar_ancianos';
+
+$resCount = $conn->query($sqlCount);
+$total = 0;
+if ($resCount->num_rows > 0) {
+	while ($r = $resCount->fetch_assoc()) {
+		$total = $r['total'];
+	}
+}
 
 // consulta datos anciano
 
@@ -40,6 +49,7 @@ if (isset($_REQUEST['search_text'])) {
 <div class="row">
 	<div class="row">
 		<h4 class="center-align">BASE DE DATOS ADULTO MAYOR</h4>
+		<h5 class="center-align">Total Ancianos: <?php echo $total;  ?></h5>
 	</div>
 </div>
 	</div>

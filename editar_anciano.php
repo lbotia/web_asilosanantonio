@@ -153,13 +153,13 @@ $resdata = $conn->query($sqldata);
 				<div class="row">
 
 					<div class="input-field col s6" center>
-						<input name="fecha_ingreso" value='<?php echo $f_ingre; ?>' type="date" class="datepicker ">
-						<label for="dob">Fecha de Ingreso</label>
+						<input name="fecha_ingreso" placeholder="Fecha De Ingreso" value='<?php echo $f_ingre; ?>' type="date" class="datepicker ">
+						
 					</div>
 
 					<div class="input-field col s6">
-						<input name="fecha_nacimiento" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
-						<label for="dob">Fecha de Nacimiento</label>
+						<input name="fecha_nacimiento" placeholder="Fecha de Nacimiento" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
+						
 					</div>
 
 				</div>

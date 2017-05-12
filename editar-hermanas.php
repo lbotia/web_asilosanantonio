@@ -115,7 +115,7 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 					</div>
 
 					<div class="input-field col s6">
-						<input placeholder="Fecha nacimiento" name="fecha" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
+						<input placeholder="Fecha nacimiento" placeholder="Fecha de Nacimiento" name="fecha" value='<?php echo $f_nac; ?>' type="date" class="datepicker ">
 						<!-- <label for="dob">Fecha de Nacimiento</label> -->
 					</div>
 				</div>

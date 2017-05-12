@@ -57,7 +57,7 @@ include_once 'controllers/config.php'; ?>
 					</div>
 
 					<div class="input-field col s6">
-						<input name="fecha" laceholder="FECHA" type="date" class="datepicker required">
+						<input name="fecha" placeholder="Fecha de Nacimiento" type="date" class="datepicker required">
 						<label for="dob"></label>
 					</div>
 				</div>

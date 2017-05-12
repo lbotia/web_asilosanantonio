@@ -104,13 +104,13 @@ while ($row = mysqli_fetch_assoc($resDis)) {
 				<div class="row">
 
 					<div class="input-field col s6" center>
-						<input name="fecha_ingreso" laceholder="FECHA" type="date" class="datepicker ">
-						<label for="dob">Fecha de Ingreso</label>
+						<input name="fecha_ingreso" placeholder="Fecha De Ingreso" type="date" class="datepicker ">
+						
 					</div>
 
 					<div class="input-field col s6">
-						<input name="fecha_nacimiento" laceholder="FECHA" type="date" class="datepicker ">
-						<label for="dob">Fecha de Nacimiento</label>
+						<input name="fecha_nacimiento" placeholder="Fecha de Nacimiento" type="date" class="datepicker ">
+						
 					</div>
 
 				</div>
