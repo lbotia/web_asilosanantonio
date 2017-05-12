@@ -32,7 +32,7 @@ if (isset($_POST)) {
 						<div class="row">
 
 							<div class="input-field col s12">
-								<input name="num_tel" value="<?php echo $num_tel; ?>"  type="text" class="validate" required onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+								<input name="num_tel" value="<?php echo $num_tel; ?>"  type="text" class="validate" required onkeypress="return event.charCode >= 47 && event.charCode <= 57 || event.charCode <= 8">
 								<label for="last_name">Telefono</label>
 							</div>
 						</div>

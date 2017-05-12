@@ -12,15 +12,14 @@ include 'helpers/header.php';
 
 include 'helpers/nav.php';  
 
-
 ?>
 
-<div class="valign-wrapper" style="width:100%;height:90%;position: absolute;">
-	<div class="valign" style="width:100%;">
+<div class="valign-wrapper" style="width:100%;height:92%;position: absolute;">
+	<div class="valign" style="width:90%;">
 		<div class="container">
 			<div class="row">
 				<!-- CARD 1 -->
-				<div class="col s4 offset-s2">
+				<div class="col s4 offset-s3">
 					<a href="panel-ancianos.php">
 						<div class="card hoverable">
 							<div class="card-image waves-effect waves-block waves-light">
@@ -52,6 +51,6 @@ include 'helpers/nav.php';
 			</div>
 		</div>
 	</div>
-
-<?php include 'helpers/footer.php'; ?>
-<?php include 'helpers/scripts.php'; ?>
+</div>
+<?php 	include 'helpers/footer.php';  ?>
+<?php 	include 'helpers/scripts.php';  ?>

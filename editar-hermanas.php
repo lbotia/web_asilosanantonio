@@ -124,7 +124,7 @@ while ($row = mysqli_fetch_assoc($resEps)) {
 				<div class="row">
 
 					<div class="input-field col s6">
-						<input name="cedula" value='<?php echo $ced; ?>'  id="last_name" type="text" class="validate" required onkeypress="return event.charCode >= 47 && event.charCode <= 57">
+						<input name="cedula" value='<?php echo $ced; ?>'  id="last_name" type="text" class="validate" disabled onkeypress="return event.charCode >= 47 && event.charCode <= 57 || || event.charCode <= 8">
 						<label for="last_name">Cedula</label>
 					</div>
 
